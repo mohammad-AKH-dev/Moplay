@@ -8,7 +8,13 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
+  important: true,
   theme: {
+    container: {
+      center: true,
+      padding: '1.5rem'
+    },
     extend: {
       fontFamily: {
         'regular': 'Ubuntu-Regular'
@@ -26,5 +32,5 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")], // ← اضافه کردن DaisyUI
 }

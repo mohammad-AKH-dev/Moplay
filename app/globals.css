@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    @font-face {
-        font-family: 'Ubuntu-Regular';
-        src: url('../public/fonts/Ubuntu-Regular.ttf') format(truetype);
-    }
+  @font-face {
+    font-family: "Ubuntu-Regular";
+    src: url("../public/fonts/Ubuntu-Regular.ttf") format(truetype);
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 17px;
 }

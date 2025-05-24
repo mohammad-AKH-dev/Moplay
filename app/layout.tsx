@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import {Ubuntu} from 'next/font/google'
+import { Ubuntu } from "next/font/google";
 
 import "./globals.css";
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,11 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={` antialiased font-regular`}
-      >
-        {children}
+    <html lang="en" className="dark:bg-main">
+      <body className={` antialiased font-regular dark:text-white text-title bg-[#ffffff] dark:bg-main`}>
+        <div className="container">{children}</div>
       </body>
     </html>
   );
