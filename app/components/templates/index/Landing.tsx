@@ -66,7 +66,7 @@ function Landing() {
                 height={2000}
                 src={movie.path}
                 alt={movie.title}
-                className="w-full -z-10 h-full min-h-full scale-150 bg-top cover rounded-3xl absolute inset-0"
+                className="w-full -z-10 h-full min-h-full  cover rounded-3xl absolute inset-0"
               />
               <div className="movie-details__wrapper grid grid-cols-1 gap-y-12 lg:grid-cols-2 translate-y-14 xl:translate-y-28">
                 <div className="movie-details">
