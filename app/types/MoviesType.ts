@@ -1,7 +1,7 @@
 import movieType from "./MovieType"
 
 type moviesType = {
-    dates: {"maximum": string , "minimum": string }
+    dates?: {"maximum": string , "minimum": string }
     page: number
     results: movieType[]
     total_pages: number

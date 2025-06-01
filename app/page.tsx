@@ -4,43 +4,29 @@ import Landing from "./components/templates/index/Landing";
 import NowPlaying from "./components/templates/index/NowPlaying";
 import moviesType from "./types/MoviesType";
 import PopularMovies from "./components/templates/index/PopularMovies";
+import useFetch from "./hooks/useFetch";
+import TrendingMovies from "./components/templates/index/TrendingMovies";
+import TopRatedMovies from "./components/templates/index/TopRatedMovies";
 
 export default async function Home() {
-  const nowPlayingMoviesRes = await fetch(
-    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
-    {
-      next: { revalidate: 3600 },
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMTA2YzQ4ODRlOGM5YWEwNDhlMGZlODMzNjFjZDUzMiIsIm5iZiI6MTc0Njg5MzkxOS40MjUsInN1YiI6IjY4MWY3YzVmNzQyNjZmYmU1OTdlNzNlYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XM9yjPjRYR3ho3ME22z_QHWmu8tHKJYkGuSMBqwoLnw",
-      },
-    }
-  );
-  const nowPlayingMovies: moviesType = await nowPlayingMoviesRes.json();
+  const nowPlayingMovies: moviesType = await useFetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1')
 
-  const popularMoviesRes = await fetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=4",
-    {
-      next: { revalidate: 3600 },
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMTA2YzQ4ODRlOGM5YWEwNDhlMGZlODMzNjFjZDUzMiIsIm5iZiI6MTc0Njg5MzkxOS40MjUsInN1YiI6IjY4MWY3YzVmNzQyNjZmYmU1OTdlNzNlYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XM9yjPjRYR3ho3ME22z_QHWmu8tHKJYkGuSMBqwoLnw",
-      },
-    }
-  );
+  const popularMovies: moviesType = await useFetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=5') 
 
-  const popularMovies: moviesType = await popularMoviesRes.json();
+  const trendingMovies: moviesType = await useFetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US')
+
+  const topRatedMovies: moviesType = await useFetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1')
+
+  console.log(trendingMovies)
 
   return (
     <div className="font-regular text-[30px] p-8">
       <Navbar />
       <Landing />
       <NowPlaying {...nowPlayingMovies} />
-      <PopularMovies {...popularMovies} />
+      <PopularMovies {...popularMovies}/>
+      <TrendingMovies {...trendingMovies}/>
+      <TopRatedMovies {...topRatedMovies}/>
     </div>
   );
 }

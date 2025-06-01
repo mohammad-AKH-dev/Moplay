@@ -3,18 +3,19 @@
 import React from "react";
 import SectionTitle from "../../modules/SectionTitle/SectionTitle";
 import moviesType from "@/app/types/MoviesType";
+
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import movieType from "@/app/types/MovieType";
 import SliderMovieBox from "../../modules/MovieBox/SliderMovieBox";
 import { Autoplay } from "swiper/modules";
 
-function PopularMovies(props: moviesType) {
+function TrendingMovies(props: moviesType) {
   const { results } = props;
   return (
-    <section className="popular-movies__section mt-28">
-      <SectionTitle href="/" title="Popular Movies" />
-      <div className="popular-movies__slider mt-8">
+    <section className="Trending-movies__section mt-28">
+      <SectionTitle href="/" title="Trending Movies" />
+      <div className="Trending-movies__slider mt-8">
         <Swiper className="mySwiper" 
         autoplay
         modules={[Autoplay]}
@@ -55,4 +56,4 @@ function PopularMovies(props: moviesType) {
   );
 }
 
-export default PopularMovies;
+export default TrendingMovies;
