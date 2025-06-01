@@ -66,7 +66,7 @@ function Landing() {
                 height={2000}
                 src={movie.path}
                 alt={movie.title}
-                className="w-full -z-10 h-full min-h-full  cover rounded-3xl absolute inset-0"
+                className="w-full brightness-50 -z-10 h-full min-h-full cover rounded-3xl absolute inset-0"
               />
               <div className="movie-details__wrapper grid grid-cols-1 gap-y-12 lg:grid-cols-2 translate-y-14 xl:translate-y-28">
                 <div className="movie-details">
@@ -83,7 +83,7 @@ function Landing() {
                       .trim()
                       .split(" ")
                       .map((str, index) => (
-                        <>
+                        <div key={index}>
                           {index === 1 || index === 2 ? (
                             <span
                               key={index}
@@ -96,7 +96,7 @@ function Landing() {
                               {str}
                             </span>
                           )}
-                        </>
+                        </div>
                       ))}
                   </h1>
                   <div className="movies-rating flex-wrap md:flex-nowrap text-white flex animate__animated animate__fadeInDown items-center gap-x-4 mt-8">
@@ -139,7 +139,7 @@ function Landing() {
                   </div>
                 </div>
                 <div className="watch-trailer__section flex items-center justify-center pb-12 sm:pb-0">
-                  <span className="watch-trailer cursor-pointer animate__animated animate__fadeInLeft text-[20px] sm:text-[28px] flex items-center gap-x-3 transition-all hover:text-link">
+                  <span className="watch-trailer text-white cursor-pointer animate__animated animate__fadeInLeft text-[20px] sm:text-[28px] flex items-center gap-x-3 transition-all hover:text-link">
                      <MdLocalMovies className="text-[30px] sm:text-[40px]"/>
                       Watch Trailer
                   </span>
