@@ -11,12 +11,12 @@ type movieBoxPropsType = {
     vote_count: number
 }
 
-function MovieBox(props: movieBoxPropsType) {
+function SliderMovieBox(props: movieBoxPropsType) {
 
   const {id,title,poster_path,vote_average,original_language, vote_count} = props
 
   return (
-    <div className="movie-box group relative max-w-[255px] max-h-[334px] sm:max-h-full sm:w-full sm:h-full">
+    <div className="movie-box group relative max-w-[300px] mx-auto sm:max-h-full sm:w-full sm:h-full">
       <IoPlayCircleSharp
         className="text-[100px] group-hover:text-[70px] text-link absolute 
         -translate-y-[50%] top-[40%] cursor-pointer left-[50%] transition-all
@@ -37,7 +37,7 @@ function MovieBox(props: movieBoxPropsType) {
         <h4 className="movie-title text-[18px] font-bold text-ellipsis overflow-hidden tracking-widest whitespace-nowrap">
           {title}
         </h4>
-        <div className="movie-time flex flex-col sm:flex-row justify-between mt-2 text-[16px]">
+        <div className="movie-time flex  sm:flex-row justify-between mt-2 text-[16px]">
           <span className={`text-footer ${Math.floor(vote_average) < 5 && 'text-red'} 
          ${Math.floor(vote_average) === 5 && 'text-footer'} ${Math.floor(vote_average) > 5 && 'text-green-800'}`}>IMDB: {Math.floor(vote_average)}/10</span>
           <span className="text-link">{vote_count} user voted</span>
@@ -47,4 +47,4 @@ function MovieBox(props: movieBoxPropsType) {
   );
 }
 
-export default MovieBox;
+export default SliderMovieBox;

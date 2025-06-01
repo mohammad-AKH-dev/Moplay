@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
 import { FaRegStar } from "react-icons/fa6";
 import { FaPlay } from "react-icons/fa6";
@@ -54,8 +54,9 @@ function Landing() {
     <div className="landing">
       <Swiper
         pagination={true}
+        autoplay
         loop
-        modules={[Pagination]}
+        modules={[Autoplay,Pagination]}
         className="mySwiper mt-12 rounded-3xl"
       >
         {comingMovies.map((movie) => (
