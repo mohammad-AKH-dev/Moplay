@@ -37,10 +37,10 @@ function SliderMovieBox(props: movieBoxPropsType) {
         <h4 className="movie-title text-[18px] font-bold text-ellipsis overflow-hidden tracking-widest whitespace-nowrap">
           {title}
         </h4>
-        <div className="movie-time flex  sm:flex-row justify-between mt-2 text-[16px]">
+        <div className="movie-time flex flex-wrap sm:flex-row justify-between mt-2 text-[16px]">
           <span className={`text-footer ${Math.floor(vote_average) < 5 && 'text-red'} 
          ${Math.floor(vote_average) === 5 && 'text-footer'} ${Math.floor(vote_average) > 5 && 'text-green-800'}`}>IMDB: {Math.floor(vote_average)}/10</span>
-          <span className="text-link">{vote_count} user voted</span>
+          <span className="text-link">{vote_count} User Voted</span>
         </div>
       </div>
     </div>

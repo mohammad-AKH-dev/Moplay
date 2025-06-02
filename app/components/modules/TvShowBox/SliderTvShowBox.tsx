@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { IoPlayCircleSharp } from "react-icons/io5";
 
-type movieBoxPropsType = {
+type TvBoxPropsType = {
     id: number
     title: string 
     poster_path: string
@@ -11,12 +11,12 @@ type movieBoxPropsType = {
     vote_count: number
 }
 
-function MovieBox(props: movieBoxPropsType) {
+function SliderTvShowBox(props: TvBoxPropsType) {
 
   const {id,title,poster_path,vote_average,original_language, vote_count} = props
 
   return (
-    <div className="movie-box group relative max-w-[255px] max-h-[334px] sm:max-h-full sm:w-full sm:h-full">
+    <div className="Tv-Show-box group relative max-w-[255px] max-h-[334px] sm:max-h-full sm:w-full sm:h-full">
       <IoPlayCircleSharp
         className="text-[100px] group-hover:text-[70px] text-link absolute 
         -translate-y-[50%] top-[40%] cursor-pointer left-[50%] transition-all
@@ -47,4 +47,4 @@ function MovieBox(props: movieBoxPropsType) {
   );
 }
 
-export default MovieBox;
+export default SliderTvShowBox;
