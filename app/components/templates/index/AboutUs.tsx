@@ -15,7 +15,7 @@ function AboutUs() {
           >
             Why Choose Us
           </h6>
-          <h2 className="about-us__title animate__animated  animate__fadeInUp font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
+          <h2 className="about-us__title text-white animate__animated  animate__fadeInUp font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
             We Care About Our <marker className="text-link">Customers</marker>{" "}
             Satisfaction
           </h2>
@@ -29,14 +29,14 @@ function AboutUs() {
             <div className="card rounded-box grid h-20 place-items-center">
               <div className="content-wrapper flex items-center gap-x-4 justify-center">
                 <div
-                  className="icon-wrapper animate__animated animate__fadeInDown
+                  className="icon-wrapper text-white animate__animated animate__fadeInDown
                   -translate-y-2 min-w-[70px] min-h-[70px] flex items-center justify-center bg-link rounded-full outline outline-3
                  border-light border-[6px] text-[44px] outline-link"
                 >
                   <CiStreamOn />
                 </div>
                 <div className="content">
-                  <h4 className="content-title text-[17px] sm:text-[22px] animate__animated animate__fadeInDown">
+                  <h4 className="content-title text-white text-[17px] sm:text-[22px] animate__animated animate__fadeInDown">
                     Best Streaming Platform
                   </h4>
                   <p className="content-caption text-[14px] min-w-[234px]  xl:text-[16px] pt-2 sm:pt-0 sm:leading-8 text-footer animate__animated animate__fadeInUp">
@@ -50,14 +50,14 @@ function AboutUs() {
             <div className="card rounded-box grid h-20 place-items-center">
               <div className="content-wrapper flex items-center gap-x-4 justify-center">
                 <div
-                  className="icon-wrapper animate__animated animate__fadeInDown
+                  className="icon-wrapper text-white animate__animated animate__fadeInDown
                   -translate-y-2 min-w-[70px] min-h-[70px] flex items-center justify-center bg-link rounded-full outline outline-3
                  border-light border-[6px] text-[44px] outline-link"
                 >
                   <PiVideoFill/>
                 </div>
                 <div className="content">
-                  <h4 className="content-title text-[17px] sm:text-[22px] animate__animated animate__fadeInDown">
+                  <h4 className="content-title text-white text-[17px] sm:text-[22px] animate__animated animate__fadeInDown">
                     Stream With No Interruptions
                   </h4>
                   <p className="content-caption text-[14px]  min-w-[234px] xl:text-[16px] pt-2 sm:pt-0 sm:leading-8 text-footer animate__animated animate__fadeInUp">
@@ -76,7 +76,7 @@ function AboutUs() {
               height={2000}
               src={"/images/about-us.jpg"}
               alt="about-us"
-              className="rounded-l-[35%] rounded-tr-[10%] border-[11px] lg:translate-y-24 animate__animated  animate__fadeInUp outline outline-link
+              className="rounded-l-[35%] rounded-tr-[10%] border-[11px] lg:translate-y-24 xl:translate-y-0 animate__animated  animate__fadeInUp outline outline-link
                border-light object-cover rounded-b-[40%]"
             />
           </div>
