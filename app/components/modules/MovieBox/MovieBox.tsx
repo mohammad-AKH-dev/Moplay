@@ -27,7 +27,7 @@ function MovieBox(props: movieBoxPropsType) {
         <div className="badge badge-info absolute top-3 text-white rounded-xl right-3 z-50">{original_language}</div>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path.slice(1)}`}
-          className="rounded-2xl group-hover:scale-110 min-h-[312px] cursor-pointer group-hover:blur-sm transition-all duration-200 delay-100"
+          className="rounded-2xl group-hover:scale-110 max-h-[300px] min-h-[300px] cursor-pointer group-hover:blur-sm transition-all duration-200 delay-100"
           width={1000}
           height={1000}
           alt="movie"

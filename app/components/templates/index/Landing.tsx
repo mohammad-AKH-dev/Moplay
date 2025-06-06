@@ -51,7 +51,7 @@ function Landing() {
   ]);
 
   return (
-    <div className="landing">
+    <div className="landing container">
       <Swiper
         pagination={true}
         autoplay

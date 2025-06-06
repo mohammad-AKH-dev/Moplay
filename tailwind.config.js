@@ -25,7 +25,8 @@ module.exports = {
         'title': '#0A0D14',
         'selected': '#29B6F6',
         'red': '#FF5858',
-        'footer': '#757F95'
+        'footer': '#757F95',
+        'light': '#131722'
       },
       backgroundColor: {
        'main': '#06090f'

@@ -9,7 +9,7 @@ function NowPlaying(props: moviesType) {
   const { results } = props;
 
   return (
-    <section className="now-playing-section mt-16">
+    <section className="now-playing-section mt-16 container">
       <SectionTitle title="Now Playing" href="/" />
       <div className="movies-wrapper grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-28 sm:gap-y-32 md:gap-y-24 mt-8">
         {results.slice(0,10).map((movie: movieType) => (

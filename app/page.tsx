@@ -11,6 +11,7 @@ import TvShowsType from "./types/TvShowsType";
 import LatestTvShows from "./components/templates/index/LatestTvShows";
 import TrendingTvShows from "./components/templates/index/TrendingTvShows";
 import TopRatedTvShows from "./components/templates/index/TopRatedTvShows";
+import AboutUs from "./components/templates/index/AboutUs";
 
 export default async function Home() {
   const nowPlayingMovies: moviesType = await useFetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1')
@@ -27,11 +28,10 @@ export default async function Home() {
 
   const topRatedTvShows: TvShowsType = await useFetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1')
 
-  console.log(trendingTvShows)
 
 
   return (
-    <div className="font-regular text-[30px] p-8">
+    <div className="font-regular text-[30px] py-8">
       <Navbar />
       <Landing />
       <NowPlaying {...nowPlayingMovies} />
@@ -41,6 +41,7 @@ export default async function Home() {
       <LatestTvShows {...latestTvShows}/>
       <TrendingTvShows {...trendingTvShows}/>
       <TopRatedTvShows {...topRatedTvShows}/>
+      <AboutUs/>
     </div>
   );
 }

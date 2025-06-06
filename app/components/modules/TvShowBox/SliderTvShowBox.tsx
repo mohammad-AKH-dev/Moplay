@@ -16,7 +16,7 @@ function SliderTvShowBox(props: TvBoxPropsType) {
   const {id,title,poster_path,vote_average,original_language, vote_count} = props
 
   return (
-    <div className="Tv-Show-box group relative max-w-[255px] max-h-[334px] sm:max-h-full sm:w-full sm:h-full">
+    <div className="Tv-Show-box group relative max-w-[230px] mx-auto  sm:max-h-full sm:w-full sm:h-full">
       <IoPlayCircleSharp
         className="text-[100px] group-hover:text-[70px] text-link absolute 
         -translate-y-[50%] top-[40%] cursor-pointer left-[50%] transition-all
@@ -27,7 +27,7 @@ function SliderTvShowBox(props: TvBoxPropsType) {
         <div className="badge badge-info absolute top-3 text-white rounded-xl right-3 z-50">{original_language}</div>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path.slice(1)}`}
-          className="rounded-2xl group-hover:scale-110 min-h-[312px] cursor-pointer group-hover:blur-sm transition-all duration-200 delay-100"
+          className="rounded-2xl group-hover:scale-110 max-h-[300px] min-h-[300px]  cursor-pointer group-hover:blur-sm transition-all duration-200 delay-100"
           width={1000}
           height={1000}
           alt="movie"

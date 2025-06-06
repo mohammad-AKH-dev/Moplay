@@ -14,7 +14,7 @@ import TvShowType from "@/app/types/TvShowType";
 function TrendingTvShows(props: TvShowsType) {
   const { results } = props;
   return (
-    <section className="Trending-tv__shows__section mt-28">
+    <section className="Trending-tv__shows__section mt-28 container">
       <SectionTitle href="/" title="Trending Tv Shows" />
       <div className="Tv-Shows__slider mt-8">
         <Swiper className="mySwiper" 

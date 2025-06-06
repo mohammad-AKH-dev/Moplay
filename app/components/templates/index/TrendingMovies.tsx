@@ -13,7 +13,7 @@ import { Autoplay } from "swiper/modules";
 function TrendingMovies(props: moviesType) {
   const { results } = props;
   return (
-    <section className="Trending-movies__section mt-28">
+    <section className="Trending-movies__section mt-28 container">
       <SectionTitle href="/" title="Trending Movies" />
       <div className="Trending-movies__slider mt-8">
         <Swiper className="mySwiper" 

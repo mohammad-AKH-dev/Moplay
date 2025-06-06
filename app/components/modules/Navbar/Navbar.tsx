@@ -41,7 +41,7 @@ function Navbar() {
   }, [darkMode]);
 
   return (
-    <nav className="navbar flex justify-between">
+    <nav className="navbar flex justify-between container px-6">
       <Link href={"/"} className="logo-wrapper">
         <Image
           src={`${darkMode ? '/images/logo.png' : '/images/logo-dark.png'}`}
