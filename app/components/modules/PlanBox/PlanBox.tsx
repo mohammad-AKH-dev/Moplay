@@ -26,9 +26,9 @@ function PlanBox(props: PlanBoxType) {
             : "border-link before:bg-link after:bg-link"
         }`}
     >
-      <div className="cleaner absolute top-0 z-20  w-[80%] mx-auto h-[30px] bg-main"></div>
+      <div className="cleaner absolute top-0 z-20  w-[80%] mx-auto h-[30px] bg-white dark:bg-main"></div>
       <span
-        className={`box-header text-[22px] absolute -top-5 left-0 
+        className={`box-header text-white text-[22px] absolute -top-5 left-0 
        ${title === "premium" ? "bg-red" : "bg-link"}  
        right-0 w-[134px] z-50
        h-[42px] block mx-auto pt-1 rounded-b-xl font-bold capitalize`}
