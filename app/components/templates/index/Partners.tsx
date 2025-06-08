@@ -32,6 +32,7 @@ function Partners() {
             className="mySwiper"
             spaceBetween={20}
             loop
+            autoplay
             modules={[Autoplay]}
             slidesPerView={1}
             breakpoints={{

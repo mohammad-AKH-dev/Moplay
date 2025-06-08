@@ -11,10 +11,10 @@ function PlanBox(props: PlanBoxType) {
   return (
     <div
       className={`pricing-plan__box px-6 rounded-2xl border-2 before:w-[30px] max-w-[350px] 
-        min-w-[350px] sm:min-w-max mx-auto sm:mr-0 sm:ml-0
+        min-w-[300px] sm:min-w-max mx-auto sm:mr-0 sm:ml-0
         before:h-[30px] before:-rotate-[55deg] before:-top-[.9rem] lg:before:rotate-[40deg] 
 
-      before:right-[5.5rem] sm:before:right-[3.5rem] md:before:right-[5.5rem]  lg:before:right-[4.3rem] xl:before:rotate-[33deg] 
+      before:right-[5.5rem]  sm:before:right-[3.5rem] md:before:right-[5.5rem]  lg:before:right-[4.3rem] xl:before:rotate-[33deg] 
        before:absolute xl:before:right-14  
           lg:before:-top-[.8rem] relative 
         after:h-[30px] after:w-[30px] after:rotate-[55deg] after:left-[5.5rem] sm:after:left-[3.5rem] md:after:left-[5.5rem] lg:after:-rotate-[40deg] 
@@ -28,7 +28,7 @@ function PlanBox(props: PlanBoxType) {
     >
       <div className="cleaner absolute top-0 z-20  w-[80%] mx-auto h-[30px] bg-white dark:bg-main"></div>
       <span
-        className={`box-header text-white text-[22px] absolute -top-5 left-0 
+        className={`box-header rounded-t-xl sm:rounded-t-none text-white text-[22px] absolute -top-5 left-0 
        ${title === "premium" ? "bg-red" : "bg-link"}  
        right-0 w-[134px] z-50
        h-[42px] block mx-auto pt-1 rounded-b-xl font-bold capitalize`}
