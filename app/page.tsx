@@ -17,6 +17,7 @@ import Partners from "./components/templates/index/Partners";
 import Blogs from "./components/templates/index/Blogs";
 import Footer from "./components/modules/Footer/Footer";
 import ThemeContextProvider from "./contexts/ThemeContext";
+import CopyRightSection from "./components/modules/CopyRight/CopyRightSection";
 
 export default async function Home() {
   const nowPlayingMovies: moviesType = await useFetch(
@@ -64,6 +65,7 @@ export default async function Home() {
         <Partners />
         <Blogs />
         <Footer />
+        <CopyRightSection/>
       </ThemeContextProvider>
     </div>
   );

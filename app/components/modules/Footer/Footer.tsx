@@ -3,6 +3,7 @@ import { themeContext } from "@/app/contexts/ThemeContext";
 import Image from "next/image";
 import React, { useContext, useState } from "react";
 import { BiLogoTelegram } from "react-icons/bi";
+import FooterTag from "./FooterTag";
 
 type footerFlagsType = {
   id: number;
@@ -12,6 +13,28 @@ type footerFlagsType = {
 
 function Footer() {
   const ThemeContext = useContext(themeContext);
+  const [tags,setTags] = useState([
+    "Top IMDB",
+    "New Release",
+    "Movies",
+    "Tv Shows",
+    "Videos",
+    "Action",
+    "Fantasy",
+    "Animation",
+    "Music",
+    "Crime",
+    "Horror",
+    "Sports",
+    "Drama",
+    "Watch",
+    "Sitemap",
+    "Talk Show",
+    "Comedy",
+    "Watch",
+    "Latest Movie",
+    "Upcoming Movie"
+  ])
   const [flags, setFlags] = useState<footerFlagsType[]>([
     {
       id: 0,
@@ -40,7 +63,7 @@ function Footer() {
     },
   ]);
   return (
-    <footer className="dark:bg-[#0A0D14] mt-24">
+    <footer className="dark:bg-[#0A0D14] mt-24 pb-12">
       <div className="container pt-16 pb-9 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-12 lg:gap-y-0 lg:grid-cols-5 gap-x-12">
         <div className="footer-box">
           <Image
@@ -228,6 +251,13 @@ function Footer() {
             Subscirbe Now
           </button>
         </div>
+      </div>
+      <div className="footer-tags container flex flex-wrap gap-x-4 gap-y-4">
+         {
+          tags.map(tag => (
+            <FooterTag title={tag}/>
+          ))
+         }
       </div>
     </footer>
   );
