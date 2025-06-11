@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { MdSunny } from "react-icons/md";
 import { IoMoon } from "react-icons/io5";
@@ -29,6 +29,22 @@ function Navbar() {
     { id: 3, title: "Tv Shows", path: "/genre/tv-shows" },
   ]);
   const pathName = usePathname()
+  const navRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const scrollEvent = () => {
+       if(window.scrollY > 50){
+         navRef.current?.classList.remove('py-12')
+         navRef.current?.classList.add('py-6')
+       }else {
+        navRef.current?.classList.remove('py-6')
+        navRef.current?.classList.add('py-12')
+       }
+    }
+    window.addEventListener('scroll',scrollEvent)
+
+    return () => window.removeEventListener('scroll',scrollEvent)
+  },[])
 
   useEffect(() => {
      if(ThemeContext?.value) {
@@ -42,7 +58,9 @@ function Navbar() {
   }, [ThemeContext?.value]);
 
   return (
-    <nav className="navbar flex justify-between container px-6">
+    <nav ref={navRef} className="navbar px-6 sticky top-0 py-12 transition-all duration-300 z-[999] bg-white dark:bg-title">
+      <div className="navbar-content container flex justify-between">
+
       <Link href={"/"} className="logo-wrapper">
         <Image
           src={`${ThemeContext?.value ? '/images/logo.png' : '/images/logo-dark.png'}`}
@@ -52,7 +70,7 @@ function Navbar() {
           alt="logo"
         />
       </Link>
-      <ul className="header-menu__list hidden lg:flex gap-x-12 text-[17px]">
+      <ul className="header-menu__list hidden translate-y-2 lg:flex gap-x-12 text-[17px]">
         {menus.map((menu) => (
           <li
             className={`menu-item transition-all ${pathName === menu.path && 'text-link'} hover:text-link`}
@@ -79,6 +97,7 @@ function Navbar() {
          <LuLogIn/>
        </Button>
        <CiMenuFries className="cursor-pointer lg:hidden"/>
+      </div>
       </div>
     </nav>
   );

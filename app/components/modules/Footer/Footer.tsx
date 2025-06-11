@@ -94,7 +94,7 @@ function Footer() {
         <div className="footer-box">
           <h5 className="footer-box__title text-[20px] mb-8 tracking-wider font-semibold relative">
             MoPlay
-            <span className="absolute before:w-[6px] before:top-0 before:bg-light rounded-xl before:rounded-xl before:h-[3px] before:absolute before:left-[22px]
+            <span className="absolute before:w-[6px] before:top-0 before:bg-white dark:before:bg-light rounded-xl before:rounded-xl before:h-[3px] before:absolute before:left-[22px]
              top-9 left-0 w-[40px] inline-block h-[3px] bg-link"></span>
           </h5>
           <ul className="footer-box__links-list text-[16px] flex flex-col gap-y-5">
@@ -145,7 +145,7 @@ function Footer() {
         <div className="footer-box">
           <h5 className="footer-box__title text-[20px] mb-8 tracking-wider font-semibold relative">
             Genres
-            <span className="absolute before:w-[6px] before:top-0 before:bg-light rounded-xl before:rounded-xl before:h-[3px] before:absolute before:left-[22px]
+            <span className="absolute before:w-[6px] before:top-0 before:bg-white dark:before:bg-light rounded-xl before:rounded-xl before:h-[3px] before:absolute before:left-[22px]
              top-9 left-0 w-[40px] inline-block h-[3px] bg-link"></span>
           </h5>
           <ul className="footer-box__links-list text-[16px] flex flex-col gap-y-5">
@@ -190,7 +190,7 @@ function Footer() {
         <div className="footer-box">
           <h5 className="footer-box__title text-[20px] tracking-wider mb-8 font-semibold relative">
             Support
-            <span className="absolute before:w-[6px] before:top-0 before:bg-light rounded-xl before:rounded-xl before:h-[3px] before:absolute before:left-[22px]
+            <span className="absolute before:w-[6px] before:top-0 before:bg-white dark:before:bg-light rounded-xl before:rounded-xl before:h-[3px] before:absolute before:left-[22px]
              top-9 left-0 w-[40px] inline-block h-[3px] bg-link"></span>
           </h5>
           <ul className="footer-box__links-list text-[16px] flex flex-col gap-y-5">
@@ -235,7 +235,7 @@ function Footer() {
         <div className="footer-box">
           <h5 className="footer-box__title text-[20px] mb-8 tracking-wider font-semibold relative">
             Newsletter
-            <span className="absolute before:w-[6px] before:top-0 before:bg-light rounded-xl before:rounded-xl before:h-[3px] before:absolute before:left-[22px]
+            <span className="absolute before:w-[6px] before:top-0 before:bg-white dark:before:bg-light rounded-xl before:rounded-xl before:h-[3px] before:absolute before:left-[22px]
              top-9 left-0 w-[40px] inline-block h-[3px] bg-link"></span>
           </h5>
           <p className="text-[16px] mb-6 leading-7">
@@ -244,9 +244,9 @@ function Footer() {
           <input
             type="email"
             placeholder="Your Email"
-            className="input input-lg text-[16px] p-6 outline-none rounded-xl w-full mb-6"
+            className="input input-lg text-[16px] p-6 outline-none rounded-xl bg-transparent w-full mb-6"
           />
-          <button className="btn bg-link w-full text-[12px] xl:text-[14px] hover:bg-red uppercase transition-all py-6 px-4 xl:p-6 whitespace-nowrap rounded-xl text-white">
+          <button className="btn bg-link border-none w-full font-normal text-[12px] xl:text-[14px] hover:bg-red uppercase transition-all py-6 px-4 xl:p-6 whitespace-nowrap rounded-xl text-white">
             <BiLogoTelegram />
             Subscirbe Now
           </button>

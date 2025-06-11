@@ -49,7 +49,7 @@ export default async function Home() {
   );
 
   return (
-    <div className="font-regular text-[30px] pt-8">
+    <div className="font-regular text-[30px]">
       <ThemeContextProvider>
         <Navbar />
         <Landing />
