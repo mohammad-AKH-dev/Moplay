@@ -64,7 +64,7 @@ function PricingPalns() {
         <h5 className="pricing-plans__subtitle tracking-[.3rem] text-link text-[15px] sm:text-[18px] uppercase font-bold">
           Our Pricing
         </h5>
-        <h3 className="pricing-plans__title text-white font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
+        <h3 className="pricing-plans__title dark:text-white font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
           Choose Your Subscription <marker className="text-link">Plan</marker>
         </h3>
       </div>

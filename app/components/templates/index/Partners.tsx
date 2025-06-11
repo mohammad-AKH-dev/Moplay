@@ -17,13 +17,13 @@ function Partners() {
     "/images/partners/partner-7.png",
   ]);
   return (
-    <section className="partners-section mt-24 bg-light py-16">
+    <section className="partners-section mt-24 bg-white dark:bg-light py-16">
       <div className="partners-section__wrapper container text-center">
         <div className="partners__header">
           <h5 className="partners__subtitle tracking-[.3rem] text-link text-[15px] sm:text-[18px] uppercase font-bold">
             Partner
           </h5>
-          <h3 className="partners__title text-white font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
+          <h3 className="partners__title dark:text-white font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
             Our Awesome <marker className="text-link">Partners</marker>
           </h3>
         </div>

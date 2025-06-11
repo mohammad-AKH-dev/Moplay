@@ -6,7 +6,7 @@ import { PiVideoFill } from "react-icons/pi";
 
 function AboutUs() {
   return (
-    <section className="about-us__section bg-light mt-24 overflow-hidden">
+    <section className="about-us__section bg-white dark:bg-light mt-24 overflow-hidden">
       <div className="about-us__content container grid grid-cols-1 lg:grid-cols-2 lg:gap-x-24 gap-y-20 sm:gap-y-12 py-12 lg:py-24">
         <div className="about-us__content__left-section ">
           <h6
@@ -15,7 +15,7 @@ function AboutUs() {
           >
             Why Choose Us
           </h6>
-          <h2 className="about-us__title text-white animate__animated  animate__fadeInUp font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
+          <h2 className="about-us__title dark:text-white animate__animated  animate__fadeInUp font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
             We Care About Our <marker className="text-link">Customers</marker>{" "}
             Satisfaction
           </h2>
@@ -31,12 +31,12 @@ function AboutUs() {
                 <div
                   className="icon-wrapper text-white animate__animated animate__fadeInDown
                   -translate-y-2 min-w-[70px] min-h-[70px] flex items-center justify-center bg-link rounded-full outline outline-3
-                 border-light border-[6px] text-[44px] outline-link"
+                 border-white dark:border-light border-[6px] text-[44px] outline-link"
                 >
                   <CiStreamOn />
                 </div>
                 <div className="content">
-                  <h4 className="content-title text-white text-[17px] sm:text-[22px] animate__animated animate__fadeInDown">
+                  <h4 className="content-title font-bold dark:text-white text-[17px] sm:text-[22px] animate__animated animate__fadeInDown">
                     Best Streaming Platform
                   </h4>
                   <p className="content-caption text-[14px] min-w-[234px]  xl:text-[16px] pt-2 sm:pt-0 sm:leading-8 text-footer animate__animated animate__fadeInUp">
@@ -52,12 +52,12 @@ function AboutUs() {
                 <div
                   className="icon-wrapper text-white animate__animated animate__fadeInDown
                   -translate-y-2 min-w-[70px] min-h-[70px] flex items-center justify-center bg-link rounded-full outline outline-3
-                 border-light border-[6px] text-[44px] outline-link"
+                 border-white dark:border-light border-[6px] text-[44px] outline-link"
                 >
                   <PiVideoFill/>
                 </div>
                 <div className="content">
-                  <h4 className="content-title text-white text-[17px] sm:text-[22px] animate__animated animate__fadeInDown">
+                  <h4 className="content-title font-bold dark:text-white text-[17px] sm:text-[22px] animate__animated animate__fadeInDown">
                     Stream With No Interruptions
                   </h4>
                   <p className="content-caption text-[14px]  min-w-[234px] xl:text-[16px] pt-2 sm:pt-0 sm:leading-8 text-footer animate__animated animate__fadeInUp">
@@ -77,7 +77,7 @@ function AboutUs() {
               src={"/images/about-us.jpg"}
               alt="about-us"
               className="rounded-l-[35%] rounded-tr-[10%] border-[11px] lg:translate-y-24 xl:translate-y-0 animate__animated  animate__fadeInUp outline outline-link
-               border-light object-cover rounded-b-[40%]"
+               border-[#fff] dark:border-light object-cover rounded-b-[40%]"
             />
           </div>
         </div>

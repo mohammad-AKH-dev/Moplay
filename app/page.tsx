@@ -15,39 +15,56 @@ import AboutUs from "./components/templates/index/AboutUs";
 import PricingPalns from "./components/templates/index/PricingPalns";
 import Partners from "./components/templates/index/Partners";
 import Blogs from "./components/templates/index/Blogs";
+import Footer from "./components/modules/Footer/Footer";
+import ThemeContextProvider from "./contexts/ThemeContext";
 
 export default async function Home() {
-  const nowPlayingMovies: moviesType = await useFetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1')
+  const nowPlayingMovies: moviesType = await useFetch(
+    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1"
+  );
 
-  const popularMovies: moviesType = await useFetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=5') 
+  const popularMovies: moviesType = await useFetch(
+    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=5"
+  );
 
-  const trendingMovies: moviesType = await useFetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US')
+  const trendingMovies: moviesType = await useFetch(
+    "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
+  );
 
-  const topRatedMovies: moviesType = await useFetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1')
+  const topRatedMovies: moviesType = await useFetch(
+    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
+  );
 
-  const latestTvShows: TvShowsType = await useFetch('https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1')
+  const latestTvShows: TvShowsType = await useFetch(
+    "https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1"
+  );
 
-  const trendingTvShows: TvShowsType = await useFetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US')
+  const trendingTvShows: TvShowsType = await useFetch(
+    "https://api.themoviedb.org/3/trending/tv/day?language=en-US"
+  );
 
-  const topRatedTvShows: TvShowsType = await useFetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1')
-
-
+  const topRatedTvShows: TvShowsType = await useFetch(
+    "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1"
+  );
 
   return (
-    <div className="font-regular text-[30px] py-8">
-      <Navbar />
-      <Landing />
-      <NowPlaying {...nowPlayingMovies} />
-      <PopularMovies {...popularMovies}/>
-      <TrendingMovies {...trendingMovies}/>
-      <TopRatedMovies {...topRatedMovies}/>
-      <LatestTvShows {...latestTvShows}/>
-      <TrendingTvShows {...trendingTvShows}/>
-      <TopRatedTvShows {...topRatedTvShows}/>
-      <AboutUs/>
-      <PricingPalns/>
-      <Partners/>
-      <Blogs/>
+    <div className="font-regular text-[30px] pt-8">
+      <ThemeContextProvider>
+        <Navbar />
+        <Landing />
+        <NowPlaying {...nowPlayingMovies} />
+        <PopularMovies {...popularMovies} />
+        <TrendingMovies {...trendingMovies} />
+        <TopRatedMovies {...topRatedMovies} />
+        <LatestTvShows {...latestTvShows} />
+        <TrendingTvShows {...trendingTvShows} />
+        <TopRatedTvShows {...topRatedTvShows} />
+        <AboutUs />
+        <PricingPalns />
+        <Partners />
+        <Blogs />
+        <Footer />
+      </ThemeContextProvider>
     </div>
   );
 }

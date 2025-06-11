@@ -18,7 +18,7 @@ function Blogs() {
         <h5 className="blogs__subtitle tracking-[.3rem] text-link text-[15px] sm:text-[18px] uppercase font-bold">
           Our Blog
         </h5>
-        <h3 className="blogs__title text-white font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
+        <h3 className="blogs__title dark:text-white font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
           Our Latest News & <marker className="text-link">Blog</marker>
         </h3>
       </div>
@@ -35,9 +35,9 @@ function Blogs() {
           alt="blog-image"
           className="max-h-[352px] rounded-2xl object-cover brightness-50"
         />
-        <div className="blog-image__content absolute top-20 right-0 left-0 max-w-[600px] mx-auto">
-          <h3 className="blog-image__title text-[38px] font-bold">Start your 30 days free trail.</h3>
-          <p className="blog-image__subtitle text-[20px] mt-2 mb-4">
+        <div className="blog-image__content text-white absolute top-5 sm:top-20 right-0 left-0 max-w-[600px] mx-auto">
+          <h3 className="blog-image__title text-[26px] sm:text-[38px] font-bold">Start your 30 days free trail.</h3>
+          <p className="blog-image__subtitle text-[18px] sm:text-[20px] mt-2 mb-4">
             It is a long established fact reader will be distracted by the
             readable content.
           </p>
