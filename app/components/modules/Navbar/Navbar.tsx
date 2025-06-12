@@ -25,8 +25,8 @@ function Navbar() {
   const ThemeContext = useContext(themeContext)
   const [menus, setMenus] = useState<navbarMenuType>([
     { id: 1, title: "Home", path: "/" },
-    { id: 2, title: "Movies", path: "/genre/movies" },
-    { id: 3, title: "Tv Shows", path: "/genre/tv-shows" },
+    { id: 2, title: "Movies", path: "/movies" },
+    { id: 3, title: "Tv Shows", path: "/tv-shows" },
   ]);
   const pathName = usePathname()
   const navRef = useRef<HTMLElement>(null)
