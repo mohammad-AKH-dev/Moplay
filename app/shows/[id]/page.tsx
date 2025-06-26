@@ -29,19 +29,19 @@ export async function generateStaticParams() {
 
 async function page() {
   const data: genresDataType = await useFetch(
-    "https://api.themoviedb.org/3/genre/movie/list?language=en"
+    'https://api.themoviedb.org/3/genre/tv/list'
   );
 
   const latestTvShows: moviesType = await useFetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=5"
+    "https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1"
   );
 
   const trendingTvShows: moviesType = await useFetch(
-    "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
+    "https://api.themoviedb.org/3/trending/tv/day?language=en-US"
   );
 
   const topRatedTvShows: moviesType = await useFetch(
-    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
+    "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1"
   );
 
   return (

@@ -82,12 +82,12 @@ function Footer() {
           </p>
           <select
             defaultValue="English"
-            className="select outline-none w-[125px] rounded-xl bg-transparent"
+            className="select outline-none w-[125px] rounded-xl bg-transparent dark:bg-main dark:text-white text-title"
           >
             {flags.map((flag) => (
-              <div className="flex items-center gap-x-4 rounded-xl">
-                <option value={flag.country}>{flag.country}</option>
-              </div>
+              <option className="flex items-center gap-x-4 rounded-xl">
+                <span>{flag.country}</span>
+              </option>
             ))}
           </select>
         </div>

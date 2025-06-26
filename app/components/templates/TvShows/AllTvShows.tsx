@@ -43,6 +43,7 @@ function AllTvShows(props: AllTvShowsPropsType) {
     ...allShowsArray![1],
     ...allShowsArray![2],
   ];
+  console.log(allShows)
   const [genre, setGenre] = useState<number>(-1);
   const [genreName, setGenreName] = useState<string>("Select A Genre");
   const [filteredShows, setFilteredShows] = useState<movieType[]>([]);
@@ -65,7 +66,7 @@ function AllTvShows(props: AllTvShowsPropsType) {
       <section className="sorting-section container mt-12 text-center sm:text-end">
         <details className="dropdown dropdown-end min-w-[208px]">
           <summary className="btn m-1 w-full mx-0">{genreName}</summary>
-          <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <ul className="menu dropdown-content bg-white dark:bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
             <li
               onClick={() => {
                 setGenre(-1);

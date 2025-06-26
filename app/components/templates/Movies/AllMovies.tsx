@@ -47,21 +47,20 @@ function AllMovies(props: AllMoviesPropsType) {
   }, [id]);
 
   useEffect(() => {
-    console.log("genre =>", genre);
     setFilteredMovies(
       [...allMovies]
         .slice(startIndex, endIndex)
         .filter((movie) => movie.genre_ids.includes(genre))
     );
-    console.log("filtered =>", filteredMovies);
   }, [genre]);
   return (
     <>
       <section className="sorting-section container mt-12 text-center sm:text-end">
         <details className="dropdown dropdown-end min-w-[208px]">
           <summary className="btn m-1 w-full mx-0">{genreName}</summary>
-          <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <ul className="menu dropdown-content bg-white dark:bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
             <li
+              className=""
               onClick={() => {
                 setGenre(-1);
                 setGenreName("Select A Genre");
@@ -89,7 +88,7 @@ function AllMovies(props: AllMoviesPropsType) {
           className={`movies-boxes__wrapper ${
             !filteredMovies.length && genre !== -1
               ? "flex items-center justify-center"
-              : "grid place-items-center gap-y-[6.5rem] text-center sm:text-left grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+              : "grid place-items-center gap-y-[6.5rem] text-center sm:text-left grid-cols-1 mn:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
           } mt-24`}
         >
           {/* default */}
