@@ -25,7 +25,7 @@ async function SingleMovie(props: SingleMovieType) {
           <img
             alt="img"
             className="w-full h-[600px] lg:h-[500px] object-cover rounded-2xl hover:scale-110 transition-all duration-100"
-            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+            src={`https://image.tmdb.org/t/p/original/${poster_path}`}
           />
         </div>
       </div>
@@ -37,7 +37,7 @@ async function SingleMovie(props: SingleMovieType) {
         <div className="single-movie__detailes text-[24px] mt-4">
           <div className="single-movie__genres text-link">
             {genres.map((genre, index) =>
-              index !== 2 ? (
+              index !== genres.length - 1 ? (
                 <span>
                   {genre.name}
                   {new Array(1).fill(0).map((zero) => (

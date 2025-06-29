@@ -32,7 +32,7 @@ function MovieBox(props: movieBoxPropsType) {
     }
 
     const handleLoad = () => setIsLoaded(true);
-    const handleError = () => setIsLoaded(false); // یا مدیریت خطا
+    const handleError = () => setIsLoaded(false)
 
     imgRef.current?.addEventListener("load", handleLoad);
     imgRef.current?.addEventListener("error", handleError);
@@ -62,7 +62,6 @@ function MovieBox(props: movieBoxPropsType) {
           key={Date.now()}
           src={`https://image.tmdb.org/t/p/w500/${poster_path.slice(1)}`}
           onLoad={() => {
-            console.log(`${id} => loaded`);
             setIsLoaded(true);
           }}
           alt="movie"

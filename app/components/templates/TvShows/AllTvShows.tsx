@@ -13,7 +13,7 @@ import TvShowType from "@/app/types/TvShowType";
 import TvShowBox from "../../modules/TvShowBox/TvShowBox";
 
 type AllTvShowsPropsType = {
-  shows: moviesType[];
+  shows: TvShowsType[];
   data: genresDataType;
 };
 
@@ -26,7 +26,7 @@ type genresDataType = {
   genres: genreType[];
 };
 
-type AllMoviesArrayType = movieType[][] | null;
+type AllMoviesArrayType = TvShowType[][] | null;
 
 function AllTvShows(props: AllTvShowsPropsType) {
   const rowsCount = 10;
@@ -46,7 +46,7 @@ function AllTvShows(props: AllTvShowsPropsType) {
   console.log(allShows)
   const [genre, setGenre] = useState<number>(-1);
   const [genreName, setGenreName] = useState<string>("Select A Genre");
-  const [filteredShows, setFilteredShows] = useState<movieType[]>([]);
+  const [filteredShows, setFilteredShows] = useState<TvShowType[]>([]);
   useEffect(() => {
     endIndex = Number(id) * rowsCount;
     startIndex = endIndex - rowsCount;
@@ -102,11 +102,11 @@ function AllTvShows(props: AllTvShowsPropsType) {
           {genre === -1 &&
             allShows
               .slice(startIndex, endIndex)
-              .map((show) => <TvShowBox {...show} />)}
+              .map((show) => <TvShowBox title={show.name} {...show} />)}
           {/* genres filtering */}
           {genre !== -1 &&
             [...filteredShows].map((show) => (
-              <TvShowBox {...show} />
+              <TvShowBox title={show.name} {...show} />
             ))}
           {!filteredShows.length && genre !== -1 && (
             <div

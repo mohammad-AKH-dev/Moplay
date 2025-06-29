@@ -32,15 +32,15 @@ async function page() {
     'https://api.themoviedb.org/3/genre/tv/list'
   );
 
-  const latestTvShows: moviesType = await useFetch(
+  const latestTvShows: TvShowsType = await useFetch(
     "https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1"
   );
 
-  const trendingTvShows: moviesType = await useFetch(
+  const trendingTvShows: TvShowsType = await useFetch(
     "https://api.themoviedb.org/3/trending/tv/day?language=en-US"
   );
 
-  const topRatedTvShows: moviesType = await useFetch(
+  const topRatedTvShows: TvShowsType = await useFetch(
     "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1"
   );
 

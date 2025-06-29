@@ -7,7 +7,7 @@ import ThemeContextProvider from "../contexts/ThemeContext";
 function layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ThemeContextProvider>
-      <div className="single-movie-page">
+      <div className="single-show-page">
         <Navbar />
         {children}
         <Footer />
