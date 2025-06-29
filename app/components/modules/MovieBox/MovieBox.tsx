@@ -104,7 +104,7 @@ function MovieBox(props: movieBoxPropsType) {
         <h4 className="movie-title text-[18px] font-bold text-ellipsis overflow-hidden tracking-widest whitespace-nowrap">
           {title}
         </h4>
-        <div className="movie-time flex flex-wrap gap-x-2 flex-col sm:flex-row justify-between mt-2 text-[16px]">
+        <div className="movie-time flex flex-wrap gap-x-2 flex-row mn:flex-col sm:flex-row justify-between mt-2 text-[16px]">
           <span className={getVoteColor(Math.floor(vote_average))}>
             IMDB: {Math.floor(vote_average)}/10
           </span>

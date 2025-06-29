@@ -1,13 +1,11 @@
-"use client";
-
-import Image from "next/image";
+'use client'
 import React, { Suspense, useEffect, useState } from "react";
 import Button from "../../modules/Button/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
-async function SingleSHow(props: singleTvShowType) {
+async function SingleShow(props: singleTvShowType) {
   const {
     name,
     poster_path,
@@ -37,7 +35,7 @@ async function SingleSHow(props: singleTvShowType) {
         <Swiper className="mySwiper mt-8" slidesPerView={4} spaceBetween={30} autoplay loop modules={[Autoplay]}>
           <Suspense fallback={<span>Loading...</span>}>
             {seasons.map((season) => (
-              <SwiperSlide>
+              <SwiperSlide key={season.id}>
                 <div className="season-wrapper group transition-all cursor-pointer">
                   <div className="show-image__wrapper max-w-[150px] max-h-[150px] rounded-2xl overflow-hidden transition-all">
                     <img
@@ -124,4 +122,4 @@ async function SingleSHow(props: singleTvShowType) {
   );
 }
 
-export default SingleSHow;
+export default SingleShow;

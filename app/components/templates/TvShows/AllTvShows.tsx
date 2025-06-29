@@ -102,7 +102,7 @@ function AllTvShows(props: AllTvShowsPropsType) {
           {genre === -1 &&
             allShows
               .slice(startIndex, endIndex)
-              .map((show) => <TvShowBox title={show.name} {...show} />)}
+              .map((show) => <TvShowBox key={show.id} title={show.name} {...show} />)}
           {/* genres filtering */}
           {genre !== -1 &&
             [...filteredShows].map((show) => (

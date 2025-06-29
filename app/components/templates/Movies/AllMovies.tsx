@@ -95,7 +95,7 @@ function AllMovies(props: AllMoviesPropsType) {
           {genre === -1 &&
             allMovies
               .slice(startIndex, endIndex)
-              .map((movie) => <MovieBox {...movie} />)}
+              .map((movie) => <MovieBox key={movie.id} {...movie} />)}
           {/* genres filtering */}
           {genre !== -1 &&
             [...filteredMovies].map((movie) => <MovieBox {...movie} />)}

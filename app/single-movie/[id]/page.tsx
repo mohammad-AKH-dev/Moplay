@@ -1,9 +1,7 @@
 import SingleMovie from "@/app/components/templates/single-movie/SingleMovie";
 import React from "react";
 
-async function page({ params }: { params: Promise<{ id: number }> }) {
-  const {id} = await params
-
+const getMovieData = async (id: number) => {
   const movieRes = await fetch(
     `https://api.themoviedb.org/3/movie/${Number(id)}?language=en-US`,
     {
@@ -17,13 +15,26 @@ async function page({ params }: { params: Promise<{ id: number }> }) {
     }
   );
 
-  const movie: SingleMovieType = await movieRes.json()
-  console.log('id =>',id)
-  console.log('movie =>' , movie)
+  return movieRes.json();
+};
+
+export async function generateMetadata({ params }: { params: { id: number } }) {
+  const { id } = params;
+  const movie = await getMovieData(id);
+  return {
+    title: movie.title,
+    description: movie.overview,
+  };
+}
+
+async function page({ params }: { params: Promise<{ id: number }> }) {
+  const { id } = await params;
+
+  const movie: SingleMovieType = await getMovieData(id);
 
   return (
     <section className="single-movie__section mt-[15rem]">
-      <SingleMovie {...movie}/>
+      <SingleMovie {...movie} />
     </section>
   );
 }

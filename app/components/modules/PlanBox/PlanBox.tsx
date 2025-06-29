@@ -58,7 +58,7 @@ function PlanBox(props: PlanBoxType) {
       <div className="divider"></div>
       <ul className="options text-[16px] text-left flex flex-col gap-y-4 text-footer mb-8">
         {details.map((detail) => (
-          <div className="option-wrapper flex items-center gap-x-1">
+          <div className="option-wrapper flex items-center gap-x-1" key={detail}>
             <TiTick
               className={`${title === "premium" ? "text-red" : "text-link"}`}
             />

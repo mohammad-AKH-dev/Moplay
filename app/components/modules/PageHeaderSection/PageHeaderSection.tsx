@@ -30,8 +30,8 @@ function PageHeaderSection({ paths, title }: PageHeaderSectionPropsType) {
         <h3 className="title text-[35px] font-bold capitalize">{title}</h3>
         <div className="breadcrumbs text-[16px] text-center mx-auto">
           <ul className="flex items-center justify-center text-center">
-            {paths.map((path) => (
-              <li>
+            {paths.map((path,index) => (
+              <li key={index}>
                 <Link
                   href={path.path}
                   className={`${pathName === path.path && "text-link"}`}

@@ -24,7 +24,7 @@ function Blogs() {
       </div>
       <div className="blog-boxes__wrapper grid grid-cols-1 sm:grid-cols-2 gap-y-12 lg:gap-y-0 lg:grid-cols-3 gap-x-6 mt-12">
         {paths.map((path) => (
-          <BlogBox src={path} />
+          <BlogBox src={path} key={path} />
         ))}
       </div>
       <div className="blogs_image mt-24 relative">

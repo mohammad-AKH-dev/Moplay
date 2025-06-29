@@ -85,8 +85,8 @@ function Footer() {
             className="select outline-none w-[125px] rounded-xl bg-transparent dark:bg-main dark:text-white text-title"
           >
             {flags.map((flag) => (
-              <option className="flex items-center gap-x-4 rounded-xl">
-                <span>{flag.country}</span>
+              <option value={flag.country} className="flex items-center gap-x-4 rounded-xl" key={flag.id}>
+                 {flag.country}
               </option>
             ))}
           </select>
@@ -254,8 +254,8 @@ function Footer() {
       </div>
       <div className="footer-tags container flex flex-wrap gap-x-4 gap-y-4">
          {
-          tags.map(tag => (
-            <FooterTag title={tag}/>
+          tags.map((tag,index) => (
+            <FooterTag title={tag} key={index}/>
           ))
          }
       </div>

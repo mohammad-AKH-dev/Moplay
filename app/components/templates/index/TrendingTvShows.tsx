@@ -39,7 +39,7 @@ function TrendingTvShows(props: TvShowsType) {
           }
         }} spaceBetween={30}>
           {results.map((show: TvShowType) => (
-            <SwiperSlide>
+            <SwiperSlide className="mn:max-w-[230px]">
               <SliderTvShowBox
                 key={show.id}
                 id={show.id}

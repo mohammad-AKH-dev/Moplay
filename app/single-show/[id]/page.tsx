@@ -1,10 +1,7 @@
-
-import SingleSHow from "@/app/components/templates/single-tvShow/SingleShow";
+import SingleShow from "@/app/components/templates/single-tvShow/SingleShow";
 import React from "react";
 
-async function page({ params }: { params: Promise<{ id: number }> }) {
-  const {id} = await params
-
+const getShowData = async (id: number) => {
   const tvShowRes = await fetch(
     `https://api.themoviedb.org/3/tv/${id}?language=en-US`,
     {
@@ -18,13 +15,26 @@ async function page({ params }: { params: Promise<{ id: number }> }) {
     }
   );
 
-  const tvShow: singleTvShowType = await tvShowRes.json()
-  console.log('id =>',id)
-  console.log('tv show =>' , tvShow)
+  return tvShowRes.json();
+};
+
+export async function generateMetadata({ params }: { params: { id: number } }) {
+  const { id } = params;
+  const show = await getShowData(id);
+  return {
+    title: show.name,
+    description: show.overview,
+  };
+}
+
+async function page({ params }: { params: Promise<{ id: number }> }) {
+  const { id } = await params;
+
+  const tvShow: singleTvShowType = await getShowData(id);
 
   return (
-    <section className="single-movie__section mt-[15rem]">
-       <SingleSHow {...tvShow}/>
+    <section className="single-show__section mt-[15rem]">
+      <SingleShow {...tvShow} />
     </section>
   );
 }
