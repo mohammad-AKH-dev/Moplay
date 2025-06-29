@@ -32,18 +32,35 @@ async function SingleShow(props: singleTvShowType) {
             src={`https://image.tmdb.org/t/p/original/${poster_path}`}
           />
         </div>
-        <Swiper className="mySwiper mt-8" slidesPerView={4} spaceBetween={30} autoplay loop modules={[Autoplay]}>
+        <Swiper className="mySwiper mt-8" autoplay loop modules={[Autoplay]} breakpoints={{
+          360: {
+            slidesPerView: 2.3
+          },
+          640: {
+            slidesPerView: 3.5,
+            spaceBetween: 10
+          },
+          768: {
+            slidesPerView: 4.5,
+          },
+          1024: {
+            slidesPerView: 3
+          },
+          1280: {
+            slidesPerView: 4
+          }
+        }} slidesPerView={1} spaceBetween={50} >
           <Suspense fallback={<span>Loading...</span>}>
             {seasons.map((season) => (
               <SwiperSlide key={season.id}>
                 <div className="season-wrapper group transition-all cursor-pointer">
-                  <div className="show-image__wrapper max-w-[150px] max-h-[150px] rounded-2xl overflow-hidden transition-all">
+                  <div className="show-image__wrapper f;ex flex-col items-center justify-center text-center mx-auto min-w-[150px] min-h-[150px] max-w-[150px] max-h-[150px] rounded-2xl overflow-hidden transition-all">
                     <img
                       src={`https://image.tmdb.org/t/p/original/${season.poster_path}`}
                       className="rounded-2xl group-hover:scale-110 transition-all group-hover:brightness-75"
                     />
                   </div>
-                  <div className="show-season__detailes text-[11px] mt-2 flex items-center justify-between">
+                  <div className="show-season__detailes text-[11px] mt-2 flex mx-auto mn:mr-0 mn:ml-0 w-[150px] items-center justify-between">
                     <h5 className="season-title uppercase overflow-hidden text-ellipsis whitespace-nowrap font-bold tracking-widest transition-all group-hover:text-link">
                       {season.name}
                     </h5>
@@ -57,7 +74,7 @@ async function SingleShow(props: singleTvShowType) {
           </Suspense>
         </Swiper>
       </div>
-      <div className="single-movie__right-section text-center lg:text-left">
+      <div className="single-movie__right-section text-left sm:text-center lg:text-left mt-16 lg:mt-0">
         <h2 className="single-movie__title text-[36px]">{name}</h2>
         <p className="single-movie__desc leading-8 mt-2 mx-auto lg:mr-0 lg:ml-0 max-w-[500px] text-[16px] text-ellipsis overflow-hidden">
           {overview}
@@ -77,15 +94,15 @@ async function SingleShow(props: singleTvShowType) {
               )
             )}
           </div>
-          <div className="flex items-center justify-center lg:justify-start gap-x-6 text-[18px] mt-6">
-            <div className="single-movie__company">
+          <div className="flex items-center justify-center lg:justify-start gap-x-6 text-[16px] xl:text-[18px] mt-6">
+            <div className="single-movie__company whitespace-nowrap text-ellipsis overflow-hidden">
               Company: {production_companies[0].name}
             </div>
-            <div className="single-movie__popularity">
+            <div className="single-movie__popularity whitespace-nowrap overflow-hidden text-ellipsis">
               IMDB: {Math.floor(vote_average)}/10
             </div>
           </div>
-          <div className="shows-episodes__count flex items-center gap-x-6">
+          <div className="shows-episodes__count flex text-center lg:text-left items-center sm:justify-center lg:justify-start text-[16px] xl:text-[18px] gap-x-6">
             <div className=" text-[18px] mt-4">
               Seasons: {number_of_seasons}
             </div>
@@ -93,12 +110,12 @@ async function SingleShow(props: singleTvShowType) {
               Episodes: {number_of_episodes}
             </div>
           </div>
-          <div className="text-[18px] mt-4 flex items-center gap-x-6">
+          <div className="text-[16px] xl:text-[18px] text-center lg:text-left mt-4 flex flex-wrap sm:flex-nowrap sm:justify-center lg:justify-start items-center gap-x-6">
             <div className="first_release">First Release: {first_air_date}</div>
             <div className="last_release">Last Release: {last_air_date}</div>
           </div>
-          <div className="flex items-center gap-x-6">
-            <div className={` text-[18px] mt-6 flex items-center gap-x-4`}>
+          <div className="text-[16px] xl:text-[18px] flex flex-col sm:flex-row   justify-start sm:text-center lg:text-left sm:justify-center lg:justify-start items-center gap-x-6">
+            <div className={` text-[16px] xl:text-[18px] mt-6 flex w-full sm:justify-center xl:justify-start items-center gap-x-4`}>
               Status:{" "}
               <span
                 className={`${
@@ -108,8 +125,8 @@ async function SingleShow(props: singleTvShowType) {
                 {status}
               </span>
             </div>
-            <div className="country text-[18px] flex mt-6 items-center">
-              Country: {production_countries[0].iso_3166_1}
+            <div className="country text-[16px] w-full justify-start sm:justify-center xl:justify-start xl:text-[18px] flex mt-6 items-center">
+              Country: {production_countries[0]?.iso_3166_1 ? production_countries[0]?.iso_3166_1 : 'Not Mentioned'}
             </div>
           </div>
         </div>
