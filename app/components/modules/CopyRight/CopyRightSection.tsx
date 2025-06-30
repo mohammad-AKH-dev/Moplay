@@ -14,7 +14,7 @@ import { FaVk } from "react-icons/fa6";
 function CopyRightSection() {
   return (
     <div className='copy-right__section flex flex-col md:flex-row gap-y-4 items-center justify-start md:justify-between container py-6'>
-       <p className='dark:text-white text-[16px]'>© Copyright 2025 <marker className='text-link'>moplay</marker> All Rights Reserved.</p>
+       <p className='dark:text-white text-[16px]'>© Copyright 2025 <span className='text-link'>moplay</span> All Rights Reserved.</p>
        <div className="socials flex flex-wrap items-center gap-x-4">
           <SocialBox>
             <FaSquareFacebook className='text-[20px]'/>

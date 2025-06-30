@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
-async function SingleShow(props: singleTvShowType) {
+function SingleShow(props: singleTvShowType) {
   const {
     name,
     poster_path,
@@ -83,14 +83,14 @@ async function SingleShow(props: singleTvShowType) {
           <div className="single-movie__genres text-[20px] text-link">
             {genres.map((genre, index) =>
               index !== genres.length - 1 ? (
-                <span>
+                <span key={genre.id}>
                   {genre.name}
-                  {new Array(1).fill(0).map((zero) => (
-                    <span>,</span>
+                  {new Array(1).fill(0).map((zero,index) => (
+                    <span key={index}>,</span>
                   ))}
                 </span>
               ) : (
-                <span>{genre.name}</span>
+                <span key={genre.id}>{genre.name}</span>
               )
             )}
           </div>

@@ -1,4 +1,5 @@
 import SingleShow from "@/app/components/templates/single-tvShow/SingleShow";
+import { Metadata, ResolvingMetadata } from "next";
 import React from "react";
 
 const getShowData = async (id: number) => {
@@ -18,14 +19,28 @@ const getShowData = async (id: number) => {
   return tvShowRes.json();
 };
 
-export async function generateMetadata({ params }: { params: { id: number } }) {
-  const { id } = params;
-  const show = await getShowData(id);
-  return {
-    title: show.name,
-    description: show.overview,
-  };
+type Props = {
+  params: Promise<{ id: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
+ 
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { id } = await params
+ 
+  // fetch data
+  const movie = await getShowData(Number(id))
+ 
+  // optionally access and extend (rather than replace) parent metadata
+ 
+  return {
+    title: movie.name
+  }
+}
+
 
 async function page({ params }: { params: Promise<{ id: number }> }) {
   const { id } = await params;
@@ -33,7 +48,7 @@ async function page({ params }: { params: Promise<{ id: number }> }) {
   const tvShow: singleTvShowType = await getShowData(id);
 
   return (
-    <section className="single-show__section mt-[15rem]">
+    <section className="single-show__section mt-[6rem] translate-y-12">
       <SingleShow {...tvShow} />
     </section>
   );

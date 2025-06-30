@@ -51,7 +51,7 @@ function Landing() {
   ]);
 
   return (
-    <div className="landing container mt-32">
+    <div className="landing container mt-24 pt-12">
       <Swiper
         pagination={true}
         autoplay

@@ -24,7 +24,7 @@ function Partners() {
             Partner
           </h5>
           <h3 className="partners__title dark:text-white font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
-            Our Awesome <marker className="text-link">Partners</marker>
+            Our Awesome <span className="text-link">Partners</span>
           </h3>
         </div>
         <div className="partners-slider__wrapper mt-12">

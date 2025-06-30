@@ -64,7 +64,6 @@ function Navbar() {
       document.documentElement.classList.remove("dark");
       document.documentElement.style.backgroundColor = "#ffffff";
     }
-    console.log("navbar =>", ThemeContext?.value);
   }, [ThemeContext?.value]);
 
   return (
@@ -119,7 +118,69 @@ function Navbar() {
             >
               <LuLogIn />
             </Button>
-            <CiMenuFries className="cursor-pointer lg:hidden" />
+            <div className="drawer drawer-end max-w-[17px] lg:hidden">
+              <input
+                id="my-drawer-4"
+                type="checkbox"
+                className="drawer-toggle"
+              />
+              <div className="drawer-content w-[17px]">
+                {/* Page content here */}
+                <label
+                  htmlFor="my-drawer-4"
+                  className="drawer-button lg:hidden"
+                >
+                  <CiMenuFries className="cursor-pointer drawer-button lg:hidden my-drawer-4" />
+                </label>
+              </div>
+              <div className="drawer-side">
+                <label
+                  htmlFor="my-drawer-4"
+                  aria-label="close sidebar"
+                  className="drawer-overlay"
+                ></label>
+                <ul className="menu bg-white dark:bg-main text-base-content min-h-full w-80 p-12 text-end">
+                  {/* Sidebar content here */}
+                  <Link href={"/"} className="logo-wrapper relative ">
+                    <Image
+                      src={`${
+                        ThemeContext?.value
+                          ? "/images/logo.png"
+                          : "/images/logo-dark.png"
+                      }`}
+                      className="logo w-[140px] absolute right-0 object-contain"
+                      width={500}
+                      height={500}
+                      alt="logo"
+                    />
+                  </Link>
+                  <div className="links-wrapper mt-16">
+                    {menus.map((menu) => (
+                      <li key={menu.id}>
+                        <Link
+                          className={`text-[18px] ${
+                            pathName === menu.path
+                              ? "text-link"
+                              : "text-title dark:text-white"
+                          }
+                            transition-all hover:text-link flex items-center justify-end`}
+                          href={menu.path}
+                        >
+                          {menu.title}
+                        </Link>
+                      </li>
+                    ))}
+                    <Button
+                      title="SIGN IN"
+                      href="/login"
+                      customStyle="bg-link w-fit mt-6 ml-[6.4rem] justify-end flex hover:bg-red"
+                    >
+                      <LuLogIn />
+                    </Button>
+                  </div>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </nav>

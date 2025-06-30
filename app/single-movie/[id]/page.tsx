@@ -1,4 +1,5 @@
 import SingleMovie from "@/app/components/templates/single-movie/SingleMovie";
+import { Metadata, ResolvingMetadata } from "next";
 import React from "react";
 
 const getMovieData = async (id: number) => {
@@ -18,14 +19,30 @@ const getMovieData = async (id: number) => {
   return movieRes.json();
 };
 
-export async function generateMetadata({ params }: { params: { id: number } }) {
-  const { id } = params;
-  const movie = await getMovieData(id);
-  return {
-    title: movie.title,
-    description: movie.overview,
-  };
+
+type Props = {
+  params: Promise<{ id: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
+ 
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { id } = await params
+ 
+  // fetch data
+  const movie = await getMovieData(Number(id))
+ 
+  // optionally access and extend (rather than replace) parent metadata
+ 
+  return {
+    title: movie.title
+  }
+}
+
+
 
 async function page({ params }: { params: Promise<{ id: number }> }) {
   const { id } = await params;
@@ -33,7 +50,7 @@ async function page({ params }: { params: Promise<{ id: number }> }) {
   const movie: SingleMovieType = await getMovieData(id);
 
   return (
-    <section className="single-movie__section mt-[15rem]">
+    <section className="single-movie__section mt-[6rem] translate-y-12">
       <SingleMovie {...movie} />
     </section>
   );

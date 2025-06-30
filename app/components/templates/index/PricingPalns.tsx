@@ -65,7 +65,7 @@ function PricingPalns() {
           Our Pricing
         </h5>
         <h3 className="pricing-plans__title dark:text-white font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
-          Choose Your Subscription <marker className="text-link">Plan</marker>
+          Choose Your Subscription <span className="text-link">Plan</span>
         </h3>
       </div>
       <div className="pricing-plans__boxes grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 gap-x-6 mt-12">

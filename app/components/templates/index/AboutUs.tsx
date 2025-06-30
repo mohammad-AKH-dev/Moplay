@@ -16,7 +16,7 @@ function AboutUs() {
             Why Choose Us
           </h6>
           <h2 className="about-us__title dark:text-white animate__animated  animate__fadeInUp font-bold tracking-wider text-[28px] sm:text-[35px] mt-4">
-            We Care About Our <marker className="text-link">Customers</marker>{" "}
+            We Care About Our <span className="text-link">Customers</span>{" "}
             Satisfaction
           </h2>
           <p className="about-us__caption text-[14px] sm:text-[16px] animate__animated  animate__fadeInLeft text-footer leading-7 my-3">
