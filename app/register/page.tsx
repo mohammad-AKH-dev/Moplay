@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../components/modules/Navbar/Navbar";
 import Footer from "../components/modules/Footer/Footer";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -7,7 +7,7 @@ import ThemeContextProvider, { themeContext } from "../contexts/ThemeContext";
 import * as yup from "yup";
 import Link from "next/link";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Bounce, toast, ToastContainer } from "react-toastify";
+import { Flip, toast, ToastContainer } from "react-toastify";
 import { redirect } from "next/navigation";
 
 type registerFormInputsType = {
@@ -49,7 +49,6 @@ function page() {
     resolver: yupResolver(registerSchema),
   });
   const onSubmit: SubmitHandler<registerFormInputsType> = async (data) => {
-    console.log(data);
     setDisabled(true);
     if (data) {
       const body = {
@@ -79,7 +78,7 @@ function page() {
             draggable: true,
             progress: undefined,
             theme: ThemeContext?.value === true ? "dark" : "light",
-            transition: Bounce,
+            transition: Flip,
           });
         }
       } catch (error) {
@@ -92,7 +91,7 @@ function page() {
           draggable: true,
           progress: undefined,
           theme: ThemeContext?.value === true ? "dark" : "light",
-          transition: Bounce,
+          transition: Flip,
         });
       }
       setTimeout(() => {
