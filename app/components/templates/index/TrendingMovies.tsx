@@ -38,7 +38,7 @@ function TrendingMovies(props: moviesType) {
           }
         }} spaceBetween={30}>
           {results.map((movie: movieType) => (
-            <SwiperSlide className="mn:max-w-[230px]">
+            <SwiperSlide className="mn:max-w-[230px] sm:max-w-full">
               <SliderMovieBox
                 key={movie.id}
                 id={movie.id}

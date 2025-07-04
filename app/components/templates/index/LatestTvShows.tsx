@@ -40,7 +40,7 @@ function LatestTvShows(props: TvShowsType) {
           }
         }} spaceBetween={30}>
           {results.map((show: TvShowType) => (
-            <SwiperSlide className="mn:max-w-[230px]">
+            <SwiperSlide className="mn:max-w-[230px] sm:max-w-full">
               <SliderTvShowBox
                 key={show.id}
                 id={show.id}

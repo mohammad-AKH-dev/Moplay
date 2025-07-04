@@ -18,6 +18,7 @@ import Blogs from "./components/templates/index/Blogs";
 import Footer from "./components/modules/Footer/Footer";
 import ThemeContextProvider from "./contexts/ThemeContext";
 import CopyRightSection from "./components/modules/CopyRight/CopyRightSection";
+import UserContextProvider from "./contexts/UserContext";
 
 export default async function Home() {
   const nowPlayingMovies: moviesType = await useFetch(
@@ -51,21 +52,23 @@ export default async function Home() {
   return (
     <div className="font-regular text-[30px]">
       <ThemeContextProvider>
-        <Navbar />
-        <Landing />
-        <NowPlaying {...nowPlayingMovies} />
-        <PopularMovies {...popularMovies} />
-        <TrendingMovies {...trendingMovies} />
-        <TopRatedMovies {...topRatedMovies} />
-        <LatestTvShows {...latestTvShows} />
-        <TrendingTvShows {...trendingTvShows} />
-        <TopRatedTvShows {...topRatedTvShows} />
-        <AboutUs />
-        <PricingPalns />
-        <Partners />
-        <Blogs />
-        <Footer />
-        <CopyRightSection/>
+        <UserContextProvider>
+          <Navbar />
+          <Landing />
+          <NowPlaying {...nowPlayingMovies} />
+          <PopularMovies {...popularMovies} />
+          <TrendingMovies {...trendingMovies} />
+          <TopRatedMovies {...topRatedMovies} />
+          <LatestTvShows {...latestTvShows} />
+          <TrendingTvShows {...trendingTvShows} />
+          <TopRatedTvShows {...topRatedTvShows} />
+          <AboutUs />
+          <PricingPalns />
+          <Partners />
+          <Blogs />
+          <Footer />
+          <CopyRightSection />
+        </UserContextProvider>
       </ThemeContextProvider>
     </div>
   );

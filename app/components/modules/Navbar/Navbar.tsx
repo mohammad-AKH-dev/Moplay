@@ -7,10 +7,16 @@ import { FiSearch } from "react-icons/fi";
 import { MdSunny } from "react-icons/md";
 import { IoMoon } from "react-icons/io5";
 import Button from "../Button/Button";
-import { LuLogIn } from "react-icons/lu";
-import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { LuLogIn, LuLogOut } from "react-icons/lu";
+import { redirect, usePathname } from "next/navigation";
+import { IoHomeSharp } from "react-icons/io5";
 import { CiMenuFries } from "react-icons/ci";
 import { themeContext } from "@/app/contexts/ThemeContext";
+import { userContext } from "@/app/contexts/UserContext";
+import { FaUserCircle } from "react-icons/fa";
+import { FaCircleUser } from "react-icons/fa6";
+import { RiMovie2Fill } from "react-icons/ri";
+import { BiSolidSlideshow } from "react-icons/bi";
 
 type menuType = {
   id: number;
@@ -21,9 +27,10 @@ type menuType = {
 type navbarMenuType = menuType[];
 
 function Navbar() {
-  const searchParams = useParams();
+  const UserContext = useContext(userContext);
   const ThemeContext = useContext(themeContext);
   const pathName = usePathname();
+  const [isShowLinks, setIsShowLinks] = useState(false);
   const [menus, setMenus] = useState<navbarMenuType>([
     { id: 1, title: "Home", path: "/" },
     { id: 2, title: "Movies", path: `/movies/1` },
@@ -35,6 +42,14 @@ function Navbar() {
     ThemeContext?.setValue(value);
     localStorage.setItem("theme", JSON.stringify(value));
   };
+
+  console.log("context =>", UserContext);
+
+  const logout = () => {
+    localStorage.removeItem('user')
+    UserContext?.setValue(null)
+    redirect('/login')
+  }
 
   useEffect(() => {
     const scrollEvent = () => {
@@ -72,6 +87,13 @@ function Navbar() {
         ref={navRef}
         className="navbar px-6 fixed top-0 py-9 transition-all duration-300 z-[999] bg-white dark:bg-title"
       >
+        <div
+          className={`transition-all delay-200 duration-100 ${
+            isShowLinks
+              ? "backdrop-blur-sm z-[99] fixed w-full h-full"
+              : "-z-[99] static backdrop-blur-0 "
+          }  -top-5 right-0 left-0`}
+        ></div>
         <div className="navbar-content container flex justify-between">
           <Link href={"/"} className="logo-wrapper">
             <Image
@@ -111,13 +133,71 @@ function Navbar() {
                 onClick={() => isDark(true)}
               />
             )}
-            <Button
-              title="SIGN IN"
-              href="/login"
-              customStyle="bg-link hidden lg:flex hover:bg-red"
-            >
-              <LuLogIn />
-            </Button>
+            {UserContext?.user ? (
+              <div className="relative z-[9999] hidden lg:block">
+                <FaUserCircle
+                  className="cursor-pointer"
+                  onClick={() => setIsShowLinks((prevState) => !prevState)}
+                />
+                <ul className={`bg-white text-title ${isShowLinks ? 'opacity-100 visible' : 'opacity-0 invisible -z-[9999]'} 
+                transition-all delay-200 duration-100 rounded-xl absolute top-8 -left-[13.5rem] text-[15px] p-4 px-6`}>
+                  <li className="flex items-center justify-between pb-2  gap-x-4 border-b border-[#fff]">
+                    {UserContext.user?.userName}{" "}
+                    <FaCircleUser className="text-[23px]" />
+                  </li>
+                  <li className="panel mt-4">
+                    <Link
+                      href={"/panel"}
+                      className={`flex ${
+                        pathName === "/panel" && "text-link"
+                      } items-center gap-x-2 justify-end text-[16px]`}
+                    >
+                      Panel
+                      <IoHomeSharp />
+                    </Link>
+                  </li>
+                  <li className="favourite-movies mt-4">
+                    <Link
+                      href={"/panel/movies"}
+                      className={`flex ${
+                        pathName === "/panel/movies" && "text-link"
+                      } items-center gap-x-2 justify-end text-[16px]`}
+                    >
+                      Favourite Movies
+                      <RiMovie2Fill />
+                    </Link>
+                  </li>
+                  <li className="favourite-shows mt-4">
+                    <Link
+                      href={"/panel/shows"}
+                      className={`flex ${
+                        pathName === "/panel/shows" && "text-link"
+                      } items-center gap-x-2 justify-end text-[16px]`}
+                    >
+                      Favourite Shows
+                      <BiSolidSlideshow />
+                    </Link>
+                  </li>
+                  <li className="log-out mt-6">
+                    <div
+                      onClick={() => logout()}
+                      className={`flex items-center cursor-pointer gap-x-2 justify-end pt-4 text-[16px] border-t border-[#fff]`}
+                    >
+                      Logout
+                      <LuLogOut />
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Button
+                title="SIGN IN"
+                href="/login"
+                customStyle="bg-link hidden lg:flex hover:bg-red"
+              >
+                <LuLogIn />
+              </Button>
+            )}
             <div className="drawer drawer-end max-w-[17px] lg:hidden">
               <input
                 id="my-drawer-4"
