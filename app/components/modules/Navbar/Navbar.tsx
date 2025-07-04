@@ -44,10 +44,10 @@ function Navbar() {
   };
 
   const logout = () => {
-    localStorage.removeItem('user')
-    UserContext?.setValue(null)
-    redirect('/login')
-  }
+    localStorage.removeItem("user");
+    UserContext?.setValue(null);
+    redirect("/login");
+  };
 
   useEffect(() => {
     const scrollEvent = () => {
@@ -137,8 +137,14 @@ function Navbar() {
                   className="cursor-pointer"
                   onClick={() => setIsShowLinks((prevState) => !prevState)}
                 />
-                <ul className={`bg-white text-title ${isShowLinks ? 'opacity-100 visible' : 'opacity-0 invisible -z-[9999]'} 
-                transition-all delay-200 duration-100 rounded-xl absolute top-8 -left-[13.5rem] text-[15px] p-4 px-6`}>
+                <ul
+                  className={`bg-white text-title ${
+                    isShowLinks
+                      ? "opacity-100 visible"
+                      : "opacity-0 invisible -z-[9999]"
+                  } 
+                transition-all delay-200 duration-100 rounded-xl absolute top-8 -left-[13.5rem] text-[15px] p-4 px-6`}
+                >
                   <li className="flex items-center justify-between pb-2  gap-x-4 border-b border-[#fff]">
                     {UserContext.user?.userName}{" "}
                     <FaCircleUser className="text-[23px]" />
@@ -233,8 +239,8 @@ function Navbar() {
                     />
                   </Link>
                   <div className="links-wrapper mt-16">
-                    {menus.map((menu) => (
-                      <li key={menu.id}>
+                    {menus.map((menu,index) => (
+                      <li key={menu.id} className={`${index !== 0 && 'mt-4'}`}>
                         <Link
                           className={`text-[18px] ${
                             pathName === menu.path
@@ -248,13 +254,71 @@ function Navbar() {
                         </Link>
                       </li>
                     ))}
-                    <Button
-                      title="SIGN IN"
-                      href="/login"
-                      customStyle="bg-link w-fit mt-6 ml-[6.4rem] justify-end flex hover:bg-red"
+                    {UserContext?.user ? (
+                      <details className="dropdown dropdown-end block w-full mt-8">
+                        <summary className="btn m-1 w-full block pt-2">
+                          User Detailes
+                        </summary>
+                        <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                          <li className="flex items-center justify-between text-[16px]  min-w-full gap-x-4 ">
+                            <span className="w-full flex items-center justify-end">
+                              {UserContext.user?.userName}{" "}
+                              <FaCircleUser className="text-[16px]" />
+                            </span>
+                          </li>
+                         <li className="panel mt-4">
+                    <Link
+                      href={"/panel"}
+                      className={`flex ${
+                        pathName === "/panel" && "text-link"
+                      } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
-                      <LuLogIn />
-                    </Button>
+                      Panel
+                      <IoHomeSharp />
+                    </Link>
+                  </li>
+                  <li className="favourite-movies mt-4">
+                    <Link
+                      href={"/panel/movies"}
+                      className={`flex ${
+                        pathName === "/panel/movies" && "text-link"
+                      } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
+                    >
+                      Favourite Movies
+                      <RiMovie2Fill />
+                    </Link>
+                  </li>
+                  <li className="favourite-shows mt-4">
+                    <Link
+                      href={"/panel/shows"}
+                      className={`flex ${
+                        pathName === "/panel/shows" && "text-link"
+                      } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
+                    >
+                      Favourite Shows
+                      <BiSolidSlideshow />
+                    </Link>
+                  </li>
+                  <li className="log-out mt-4">
+                    <div
+                      onClick={() => logout()}
+                      className={`flex items-center cursor-pointer hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
+                    >
+                      Logout
+                      <LuLogOut />
+                    </div>
+                  </li>
+                        </ul>
+                      </details>
+                    ) : (
+                      <Button
+                        title="SIGN IN"
+                        href="/login"
+                        customStyle="bg-link w-fit mt-6 ml-[6.4rem] justify-end flex hover:bg-red"
+                      >
+                        <LuLogIn />
+                      </Button>
+                    )}
                   </div>
                 </ul>
               </div>
