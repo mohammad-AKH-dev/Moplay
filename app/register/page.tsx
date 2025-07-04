@@ -69,7 +69,10 @@ function page() {
         if (user) {
           reset();
           toast.success("Your Account Registered Successfully!", {
-            onClose: () => redirect("/"),
+            onClose: () => {
+              localStorage.setItem('user',JSON.stringify(user.data))
+              redirect('/')
+            },
             position: "top-left",
             autoClose: 2800,
             hideProgressBar: false,

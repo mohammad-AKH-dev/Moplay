@@ -43,8 +43,6 @@ function Navbar() {
     localStorage.setItem("theme", JSON.stringify(value));
   };
 
-  console.log("context =>", UserContext);
-
   const logout = () => {
     localStorage.removeItem('user')
     UserContext?.setValue(null)
@@ -92,7 +90,7 @@ function Navbar() {
             isShowLinks
               ? "backdrop-blur-sm z-[99] fixed w-full h-full"
               : "-z-[99] static backdrop-blur-0 "
-          }  -top-5 right-0 left-0`}
+          }  top-0 right-0 left-0`}
         ></div>
         <div className="navbar-content container flex justify-between">
           <Link href={"/"} className="logo-wrapper">
@@ -150,7 +148,7 @@ function Navbar() {
                       href={"/panel"}
                       className={`flex ${
                         pathName === "/panel" && "text-link"
-                      } items-center gap-x-2 justify-end text-[16px]`}
+                      } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Panel
                       <IoHomeSharp />
@@ -161,7 +159,7 @@ function Navbar() {
                       href={"/panel/movies"}
                       className={`flex ${
                         pathName === "/panel/movies" && "text-link"
-                      } items-center gap-x-2 justify-end text-[16px]`}
+                      } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Favourite Movies
                       <RiMovie2Fill />
@@ -172,7 +170,7 @@ function Navbar() {
                       href={"/panel/shows"}
                       className={`flex ${
                         pathName === "/panel/shows" && "text-link"
-                      } items-center gap-x-2 justify-end text-[16px]`}
+                      } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Favourite Shows
                       <BiSolidSlideshow />
@@ -181,7 +179,7 @@ function Navbar() {
                   <li className="log-out mt-6">
                     <div
                       onClick={() => logout()}
-                      className={`flex items-center cursor-pointer gap-x-2 justify-end pt-4 text-[16px] border-t border-[#fff]`}
+                      className={`flex items-center cursor-pointer hover:text-link transition-all gap-x-2 justify-end pt-4 text-[16px] border-t border-[#fff]`}
                     >
                       Logout
                       <LuLogOut />
