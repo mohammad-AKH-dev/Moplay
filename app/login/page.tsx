@@ -65,17 +65,25 @@ function page() {
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
-              theme: ThemeContext?.value  ? "dark" : "light",
+              theme: ThemeContext?.value ? "dark" : "light",
               transition: Flip,
             });
           } else {
             reset();
             toast.success("You have successfully logged in", {
               onClose: () => {
-                localStorage.setItem('user',JSON.stringify(user[0]))
-                redirect('/')
-              }
-              ,
+                localStorage.setItem(
+                  "user",
+                  JSON.stringify({
+                    firstName: user[0].firstName,
+                    lastName: user[0].lastName,
+                    userName: user[0].userName,
+                    email: user[0].email,
+                    password: user[0].password
+                  })
+                );
+                redirect(`/panel/${user[0].id}`);
+              },
               position: "top-left",
               autoClose: 2800,
               hideProgressBar: false,

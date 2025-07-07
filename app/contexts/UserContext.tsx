@@ -1,15 +1,23 @@
 "use client";
 
-import { createContext, Dispatch, PropsWithChildren, SetStateAction, useEffect, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import TvShowType from "../types/TvShowType";
 import movieType from "../types/MovieType";
 
 type userContextProviderType = {
-    user: userContextValueType,
-    setValue: Dispatch<SetStateAction<userContextValueType>>
-} | null
+  user: userContextValueType;
+  setValue: Dispatch<SetStateAction<userContextValueType>>;
+} | null;
 
 type userContextValueType = {
+  id: string;
   userName: string;
   email: string;
   password: string;
@@ -42,11 +50,15 @@ const UserContextProvider = ({
           user.userName.includes("@gmail")
             ? `https://moplay-api.onrender.com/api/users?email=${user.email}`
             : `https://moplay-api.onrender.com/api/users?userName=${user.userName}`
-        }`
+        }`,
+        {
+          cache: "no-store",
+        }
       )
         .then((res) => res.json())
         .then((data) => {
           setUser({
+            id: data[0].id,
             userName: data[0].userName,
             email: data[0].email,
             password: data[0].password,
@@ -64,7 +76,11 @@ const UserContextProvider = ({
     getData();
   }, []);
 
-  return <userContext.Provider value={{user,setValue:setUser}}>{children}</userContext.Provider>;
+  return (
+    <userContext.Provider value={{ user, setValue: setUser }}>
+      {children}
+    </userContext.Provider>
+  );
 };
 
 export default UserContextProvider;

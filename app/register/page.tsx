@@ -53,9 +53,13 @@ function page() {
     if (data) {
       const body = {
         id: crypto.randomUUID(),
-        data,
-        movies: {},
-        shows: {},
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        password: data.password,
+        userName: data.userName,
+        movies: [],
+        shows: [],
       };
       try {
         const res = await fetch("https://moplay-api.onrender.com/api/users", {
@@ -67,11 +71,21 @@ function page() {
         });
         const user = await res.json();
         if (user) {
+          console.log(user);
           reset();
           toast.success("Your Account Registered Successfully!", {
             onClose: () => {
-              localStorage.setItem('user',JSON.stringify(user.data))
-              redirect('/')
+              localStorage.setItem(
+                "user",
+                JSON.stringify({
+                  firstName: user.firstName,
+                  lastName: user.lastName,
+                  password: user.password,
+                  email: user.email,
+                  userName: user.userName,
+                })
+              );
+              redirect(`/panel/${user.id}`);
             },
             position: "top-left",
             autoClose: 2800,
@@ -105,7 +119,7 @@ function page() {
 
   return (
     <ThemeContextProvider>
-      <ToastContainer/>
+      <ToastContainer />
       <div className="login-page">
         <Navbar />
         <div className="form-wrapper  flex items-center justify-center container">

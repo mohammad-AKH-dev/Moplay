@@ -38,6 +38,7 @@ function Navbar() {
   ]);
   const navRef = useRef<HTMLElement>(null);
 
+
   const isDark = (value: boolean) => {
     ThemeContext?.setValue(value);
     localStorage.setItem("theme", JSON.stringify(value));
@@ -48,6 +49,10 @@ function Navbar() {
     UserContext?.setValue(null);
     redirect("/login");
   };
+
+  useEffect(() => {
+      setIsShowLinks(false)
+  },[pathName]) 
 
   useEffect(() => {
     const scrollEvent = () => {
@@ -146,14 +151,14 @@ function Navbar() {
                 transition-all delay-200 duration-100 rounded-xl absolute top-8 -left-[13.5rem] text-[15px] p-4 px-6`}
                 >
                   <li className="flex items-center justify-between pb-2  gap-x-4 border-b border-[#fff]">
-                    {UserContext.user?.userName}{" "}
+                    {UserContext.user?.userName}
                     <FaCircleUser className="text-[23px]" />
                   </li>
                   <li className="panel mt-4">
                     <Link
-                      href={"/panel"}
+                      href={`/panel/${UserContext.user.id}`}
                       className={`flex ${
-                        pathName === "/panel" && "text-link"
+                        pathName === `/panel/${UserContext.user.id}` && "text-link"
                       } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Panel
@@ -162,9 +167,9 @@ function Navbar() {
                   </li>
                   <li className="favourite-movies mt-4">
                     <Link
-                      href={"/panel/movies"}
+                      href={`/panel/${UserContext.user.id}/movies`}
                       className={`flex ${
-                        pathName === "/panel/movies" && "text-link"
+                        pathName === `/panel/${UserContext.user.id}/movies` && "text-link"
                       } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Favourite Movies
@@ -173,9 +178,9 @@ function Navbar() {
                   </li>
                   <li className="favourite-shows mt-4">
                     <Link
-                      href={"/panel/shows"}
+                      href={`/panel/${UserContext.user.id}/shows`}
                       className={`flex ${
-                        pathName === "/panel/shows" && "text-link"
+                        pathName === `/panel/${UserContext.user.id}/shows` && "text-link"
                       } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Favourite Shows
@@ -268,9 +273,9 @@ function Navbar() {
                           </li>
                          <li className="panel mt-4">
                     <Link
-                      href={"/panel"}
+                      href={`/panel/${UserContext.user.id}`}
                       className={`flex ${
-                        pathName === "/panel" && "text-link"
+                        pathName === `/panel/${UserContext.user.id}` && "text-link"
                       } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Panel
@@ -279,9 +284,9 @@ function Navbar() {
                   </li>
                   <li className="favourite-movies mt-4">
                     <Link
-                      href={"/panel/movies"}
+                      href={`/panel/${UserContext.user.id}/movies`}
                       className={`flex ${
-                        pathName === "/panel/movies" && "text-link"
+                        pathName === `/panel/${UserContext.user.id}/movies` && "text-link"
                       } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Favourite Movies
@@ -290,9 +295,9 @@ function Navbar() {
                   </li>
                   <li className="favourite-shows mt-4">
                     <Link
-                      href={"/panel/shows"}
+                      href={`/panel/${UserContext.user.id}/shows`}
                       className={`flex ${
-                        pathName === "/panel/shows" && "text-link"
+                        pathName === `/panel/${UserContext.user.id}/shows` && "text-link"
                       } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Favourite Shows
