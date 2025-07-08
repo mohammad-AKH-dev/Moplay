@@ -18,6 +18,14 @@ type registerFormInputsType = {
   password: string;
 };
 
+type cookieUserType = {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+};
+
 const emailRegex = /^[\w+.-]+@[\w-]+\.[a-zA-Z]{2,}$/g;
 const registerSchema = yup.object({
   firstName: yup.string().required("please insert firstname."),
@@ -48,6 +56,18 @@ function page() {
   } = useForm<registerFormInputsType>({
     resolver: yupResolver(registerSchema),
   });
+
+  function setCookie(name: string, value: cookieUserType, days: number) {
+    let expires = "";
+    if (days) {
+      let date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie =
+      name + "=" + (JSON.stringify(value) || "") + expires + "; path=/";
+  }
+
   const onSubmit: SubmitHandler<registerFormInputsType> = async (data) => {
     setDisabled(true);
     if (data) {
@@ -71,8 +91,18 @@ function page() {
         });
         const user = await res.json();
         if (user) {
-          console.log(user);
           reset();
+          setCookie(
+            "user",
+            {
+              firstName: user.firstName,
+              lastName: user.lastName,
+              password: user.password,
+              email: user.email,
+              userName: user.userName,
+            },
+            2
+          );
           toast.success("Your Account Registered Successfully!", {
             onClose: () => {
               localStorage.setItem(

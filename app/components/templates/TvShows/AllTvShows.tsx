@@ -43,7 +43,6 @@ function AllTvShows(props: AllTvShowsPropsType) {
     ...allShowsArray![1],
     ...allShowsArray![2],
   ];
-  console.log(allShows)
   const [genre, setGenre] = useState<number>(-1);
   const [genreName, setGenreName] = useState<string>("Select A Genre");
   const [filteredShows, setFilteredShows] = useState<TvShowType[]>([]);
@@ -53,13 +52,11 @@ function AllTvShows(props: AllTvShowsPropsType) {
   }, [id]);
 
   useEffect(() => {
-    console.log("genre =>", genre);
     setFilteredShows(
       [...allShows]
         .slice(startIndex, endIndex)
         .filter((movie) => movie.genre_ids.includes(genre))
     );
-    console.log("filtered =>", filteredShows);
   }, [genre]);
   return (
     <>

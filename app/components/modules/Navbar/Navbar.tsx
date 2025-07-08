@@ -38,6 +38,10 @@ function Navbar() {
   ]);
   const navRef = useRef<HTMLElement>(null);
 
+  function eraseCookie(name: string) {
+    document.cookie =
+      name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+  }
 
   const isDark = (value: boolean) => {
     ThemeContext?.setValue(value);
@@ -47,12 +51,35 @@ function Navbar() {
   const logout = () => {
     localStorage.removeItem("user");
     UserContext?.setValue(null);
+    eraseCookie("user");
     redirect("/login");
   };
 
+  function getCookie(name: string) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == " ") c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
   useEffect(() => {
-      setIsShowLinks(false)
-  },[pathName]) 
+    const localUser = JSON.parse(localStorage.getItem("user")!);
+    const cookieUser = JSON.parse(getCookie("user")!);
+
+    if (pathName.startsWith("/panel")) {
+      if (!localUser || !cookieUser) {
+        redirect("/login");
+      }
+    }
+  }, [pathName]);
+
+  useEffect(() => {
+    setIsShowLinks(false);
+  }, [pathName]);
 
   useEffect(() => {
     const scrollEvent = () => {
@@ -158,7 +185,8 @@ function Navbar() {
                     <Link
                       href={`/panel/${UserContext.user.id}`}
                       className={`flex ${
-                        pathName === `/panel/${UserContext.user.id}` && "text-link"
+                        pathName === `/panel/${UserContext.user.id}` &&
+                        "text-link"
                       } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Panel
@@ -169,7 +197,8 @@ function Navbar() {
                     <Link
                       href={`/panel/${UserContext.user.id}/movies`}
                       className={`flex ${
-                        pathName === `/panel/${UserContext.user.id}/movies` && "text-link"
+                        pathName === `/panel/${UserContext.user.id}/movies` &&
+                        "text-link"
                       } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Favourite Movies
@@ -180,7 +209,8 @@ function Navbar() {
                     <Link
                       href={`/panel/${UserContext.user.id}/shows`}
                       className={`flex ${
-                        pathName === `/panel/${UserContext.user.id}/shows` && "text-link"
+                        pathName === `/panel/${UserContext.user.id}/shows` &&
+                        "text-link"
                       } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
                     >
                       Favourite Shows
@@ -244,8 +274,8 @@ function Navbar() {
                     />
                   </Link>
                   <div className="links-wrapper mt-16">
-                    {menus.map((menu,index) => (
-                      <li key={menu.id} className={`${index !== 0 && 'mt-4'}`}>
+                    {menus.map((menu, index) => (
+                      <li key={menu.id} className={`${index !== 0 && "mt-4"}`}>
                         <Link
                           className={`text-[18px] ${
                             pathName === menu.path
@@ -271,48 +301,53 @@ function Navbar() {
                               <FaCircleUser className="text-[16px]" />
                             </span>
                           </li>
-                         <li className="panel mt-4">
-                    <Link
-                      href={`/panel/${UserContext.user.id}`}
-                      className={`flex ${
-                        pathName === `/panel/${UserContext.user.id}` && "text-link"
-                      } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
-                    >
-                      Panel
-                      <IoHomeSharp />
-                    </Link>
-                  </li>
-                  <li className="favourite-movies mt-4">
-                    <Link
-                      href={`/panel/${UserContext.user.id}/movies`}
-                      className={`flex ${
-                        pathName === `/panel/${UserContext.user.id}/movies` && "text-link"
-                      } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
-                    >
-                      Favourite Movies
-                      <RiMovie2Fill />
-                    </Link>
-                  </li>
-                  <li className="favourite-shows mt-4">
-                    <Link
-                      href={`/panel/${UserContext.user.id}/shows`}
-                      className={`flex ${
-                        pathName === `/panel/${UserContext.user.id}/shows` && "text-link"
-                      } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
-                    >
-                      Favourite Shows
-                      <BiSolidSlideshow />
-                    </Link>
-                  </li>
-                  <li className="log-out mt-4">
-                    <div
-                      onClick={() => logout()}
-                      className={`flex items-center cursor-pointer hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
-                    >
-                      Logout
-                      <LuLogOut />
-                    </div>
-                  </li>
+                          <li className="panel mt-4">
+                            <Link
+                              href={`/panel/${UserContext.user.id}`}
+                              className={`flex ${
+                                pathName === `/panel/${UserContext.user.id}` &&
+                                "text-link"
+                              } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
+                            >
+                              Panel
+                              <IoHomeSharp />
+                            </Link>
+                          </li>
+                          <li className="favourite-movies mt-4">
+                            <Link
+                              href={`/panel/${UserContext.user.id}/movies`}
+                              className={`flex ${
+                                pathName ===
+                                  `/panel/${UserContext.user.id}/movies` &&
+                                "text-link"
+                              } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
+                            >
+                              Favourite Movies
+                              <RiMovie2Fill />
+                            </Link>
+                          </li>
+                          <li className="favourite-shows mt-4">
+                            <Link
+                              href={`/panel/${UserContext.user.id}/shows`}
+                              className={`flex ${
+                                pathName ===
+                                  `/panel/${UserContext.user.id}/shows` &&
+                                "text-link"
+                              } items-center hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
+                            >
+                              Favourite Shows
+                              <BiSolidSlideshow />
+                            </Link>
+                          </li>
+                          <li className="log-out mt-4">
+                            <div
+                              onClick={() => logout()}
+                              className={`flex items-center cursor-pointer hover:text-link transition-all gap-x-2 justify-end text-[16px]`}
+                            >
+                              Logout
+                              <LuLogOut />
+                            </div>
+                          </li>
                         </ul>
                       </details>
                     ) : (

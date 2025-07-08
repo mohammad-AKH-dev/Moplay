@@ -18,6 +18,14 @@ type Inputs = {
   password: string;
 };
 
+type cookieUserType = {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+};
+
 type userPanelPropsType = {
   id: string;
   firstName: string;
@@ -67,8 +75,18 @@ function UserPanel(props: userPanelPropsType) {
       userName: props?.userName,
     },
   });
+  function setCookie(name: string, value: cookieUserType, days: number) {
+    let expires = "";
+    if (days) {
+      let date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie =
+      name + "=" + (JSON.stringify(value) || "") + expires + "; path=/";
+  }
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    setDisabled(true)
+    setDisabled(true);
     if (isDirty) {
       const body = {
         firstName: data.firstName,
@@ -92,13 +110,27 @@ function UserPanel(props: userPanelPropsType) {
         );
         if (res.ok) {
           const user = await res.json();
-          localStorage.setItem('user',JSON.stringify({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            userName: user.userName,
-            email: user.email,
-            password: user.password
-          }))
+          setCookie(
+            "user",
+            {
+              firstName: user.firstName,
+              lastName: user.lastName,
+              userName: user.userName,
+              email: user.email,
+              password: user.password,
+            },
+            2
+          );
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              firstName: user.firstName,
+              lastName: user.lastName,
+              userName: user.userName,
+              email: user.email,
+              password: user.password,
+            })
+          );
           toast.success("You Have Updated Your Information!", {
             onClose: () => window.location.reload(),
             position: "top-left",
@@ -139,8 +171,8 @@ function UserPanel(props: userPanelPropsType) {
       });
     }
     setTimeout(() => {
-      setDisabled(false)
-    },3000)
+      setDisabled(false);
+    }, 3000);
   };
 
   useEffect(() => {

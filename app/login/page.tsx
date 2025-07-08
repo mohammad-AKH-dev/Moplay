@@ -15,6 +15,14 @@ type loginFormInputsType = {
   password: string;
 };
 
+type cookieUserType = {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+};
+
 const loginSchema = yup.object({
   userName: yup
     .string()
@@ -38,6 +46,18 @@ function page() {
   } = useForm<loginFormInputsType>({
     resolver: yupResolver(loginSchema),
   });
+
+  function setCookie(name: string, value: cookieUserType, days: number) {
+    let expires = "";
+    if (days) {
+      let date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie =
+      name + "=" + (JSON.stringify(value) || "") + expires + "; path=/";
+  }
+
   const onSubmit: SubmitHandler<loginFormInputsType> = async (data) => {
     setDisabled(true);
     if (data) {
@@ -70,6 +90,17 @@ function page() {
             });
           } else {
             reset();
+            setCookie(
+              "user",
+              {
+                firstName: user[0].firstName,
+                lastName: user[0].lastName,
+                userName: user[0].userName,
+                email: user[0].email,
+                password: user[0].password,
+              },
+              2
+            );
             toast.success("You have successfully logged in", {
               onClose: () => {
                 localStorage.setItem(
@@ -79,7 +110,7 @@ function page() {
                     lastName: user[0].lastName,
                     userName: user[0].userName,
                     email: user[0].email,
-                    password: user[0].password
+                    password: user[0].password,
                   })
                 );
                 redirect(`/panel/${user[0].id}`);

@@ -3,12 +3,9 @@ import { Metadata, ResolvingMetadata } from "next";
 import React from "react";
 import { ToastContainer } from "react-toastify";
 
-export const getUserData = async (id: string) => {
+const getUserData = async (id: string) => {
   const userRes = await fetch(
-    `https://moplay-api.onrender.com/api/users/${id}`,
-    {
-      cache: "no-store",
-    }
+    `https://moplay-api.onrender.com/api/users/${id}`
   );
 
   return userRes.json();
@@ -37,10 +34,10 @@ export async function generateMetadata(
 }
 
 async function page({ params }: { params: Promise<{ id: string | number }> }) {
+ 
   const { id } = await params;
 
   const user = await getUserData(String(id));
-
 
   return (
     <>
