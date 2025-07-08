@@ -347,11 +347,11 @@ function SingleShow(props: singleTvShowType) {
             disabled={disabled}
             className={`btn tracking-widest ${
               disabled ? "bg-link w-[136px]" : "bg-red"
-            } hover:bg-link transition-all p-4 py-6 mt-10`}
+            } hover:bg-link transition-all p-4 text-white mt-10`}
             onClick={() => addToFavouriteShows(props)}
           >
             {disabled ? (
-              <span className="loading loading-spinner loading-lg"></span>
+              <span className="loading loading-spinner loading-lg block -mt-[.7rem]"></span>
             ) : (
               <span>Add To Favourites</span>
             )}
@@ -362,11 +362,11 @@ function SingleShow(props: singleTvShowType) {
             disabled={disabled}
             className={`btn tracking-widest ${
               disabled ? "bg-link w-[136px]" : "bg-red"
-            } hover:bg-link transition-all p-4 py-6 mt-10`}
+            } hover:bg-link transition-all p-4 text-white  mt-10`}
             onClick={() => removeFavouriteShow()}
           >
             {disabled ? (
-              <span className="loading loading-spinner loading-lg"></span>
+              <span className="loading loading-spinner loading-lg block -mt-[.7rem]"></span>
             ) : (
               <span>This Item Is In Your Favourite List</span>
             )}

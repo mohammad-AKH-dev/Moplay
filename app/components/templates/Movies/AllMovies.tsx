@@ -57,8 +57,8 @@ function AllMovies(props: AllMoviesPropsType) {
     <>
       <section className="sorting-section container mt-12 text-center sm:text-end">
         <details className="dropdown dropdown-end min-w-[208px]">
-          <summary className="btn m-1 w-full mx-0">{genreName}</summary>
-          <ul className="menu dropdown-content bg-white dark:bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <summary className="btn m-1 w-full mx-0 text-white">{genreName}</summary>
+          <ul className="menu dropdown-content z-[999] bg-white dark:bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
             <li
               className=""
               onClick={() => {

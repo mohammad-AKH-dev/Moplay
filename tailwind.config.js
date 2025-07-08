@@ -45,5 +45,5 @@ module.exports = {
       }
     },
   },
-  plugins: [require("daisyui")], // ← اضافه کردن DaisyUI
+   plugins: [require("daisyui")], // ← اضافه کردن DaisyUI
 }

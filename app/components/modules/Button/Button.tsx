@@ -16,7 +16,7 @@ function Button({
   return (
     <>
       {href ? (
-        <Link href={href} className={`btn ${customStyle} border-none tracking-widest`}>
+        <Link href={href} className={`btn text-white ${customStyle} border-none tracking-widest`}>
           {children}
           {title}
         </Link>

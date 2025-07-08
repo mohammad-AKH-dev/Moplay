@@ -246,9 +246,10 @@ function Footer() {
             placeholder="Your Email"
             className="input input-lg text-[16px] p-6 outline-none rounded-xl bg-transparent w-full mb-6"
           />
-          <button className="btn bg-link border-none w-full font-normal text-[12px] xl:text-[14px] hover:bg-red uppercase transition-all py-6 px-4 xl:p-6 whitespace-nowrap rounded-xl text-white">
+          <button className="btn bg-link
+           border-none w-full font-bold text-[11px] lg:text-[12px] xl:text-[14px] hover:bg-red uppercase transition-all px-4 whitespace-nowrap rounded-xl text-white">
             <BiLogoTelegram />
-            Subscirbe Now
+            <span>Subscirbe Now</span>
           </button>
         </div>
       </div>

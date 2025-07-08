@@ -25,7 +25,7 @@ const Pagination = ({
           <Link
             href={`/${title}/${number}`}
             key={number}
-            className={`join-item border-none btn ${
+            className={`join-item border-none btn text-white rounded-md px-5 ${
               currentPage === number ? "bg-link" : ""
             }`}
           >

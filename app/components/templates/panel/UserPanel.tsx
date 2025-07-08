@@ -189,7 +189,7 @@ function UserPanel(props: userPanelPropsType) {
     <form onSubmit={handleSubmit(onSubmit)} className="mt-12">
       <div className="inputs-wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-0 lg:gap-x-6 xl:gap-x-0 gap-y-6">
         <fieldset className="fieldset">
-          <legend className="fieldset-legend text-title dark:text-dark-title">FirstName:</legend>
+          <legend className="fieldset-legend text-title text-[15px] font-bold tracking-tight pb-1 dark:text-dark-title">FirstName:</legend>
           <input
             type="text"
             className="input bg-transparent dark:border-[#ecf9ff33] border-title "
@@ -203,7 +203,7 @@ function UserPanel(props: userPanelPropsType) {
           )}
         </fieldset>
         <fieldset className="fieldset">
-          <legend className="fieldset-legend text-title dark:text-dark-title">LastName:</legend>
+          <legend className="fieldset-legend text-title text-[15px] font-bold tracking-tight pb-1 dark:text-dark-title">LastName:</legend>
           <input
             type="text"
             className="input bg-transparent dark:border-[#ecf9ff33] border-title"
@@ -217,7 +217,7 @@ function UserPanel(props: userPanelPropsType) {
           )}
         </fieldset>
         <fieldset className="fieldset">
-          <legend className="fieldset-legend text-title dark:text-dark-title">Email:</legend>
+          <legend className="fieldset-legend text-title text-[15px] font-bold tracking-tight pb-1 dark:text-dark-title">Email:</legend>
           <input
             type="email"
             className="input bg-transparent dark:border-[#ecf9ff33] border-title"
@@ -231,7 +231,7 @@ function UserPanel(props: userPanelPropsType) {
           )}
         </fieldset>
         <fieldset className="fieldset">
-          <legend className="fieldset-legend text-title dark:text-dark-title">UserName:</legend>
+          <legend className="fieldset-legend text-title text-[15px] font-bold tracking-tight pb-1 dark:text-dark-title">UserName:</legend>
           <input
             type="text"
             className="input bg-transparent dark:border-[#ecf9ff33] border-title"
@@ -245,7 +245,7 @@ function UserPanel(props: userPanelPropsType) {
           )}
         </fieldset>
         <fieldset className="fieldset ">
-          <legend className="fieldset-legend text-title dark:text-dark-title">Password:</legend>
+          <legend className="fieldset-legend text-title text-[15px] font-bold tracking-tight pb-1 dark:text-dark-title">Password:</legend>
           <input
             type="text"
             className="input bg-transparent dark:border-[#ecf9ff33] border-title"

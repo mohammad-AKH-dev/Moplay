@@ -291,10 +291,10 @@ function Navbar() {
                     ))}
                     {UserContext?.user ? (
                       <details className="dropdown dropdown-end block w-full mt-8">
-                        <summary className="btn m-1 w-full block pt-2">
+                        <summary className="btn m-1 w-full flex items-center justify-center bg-transparent dark:bg-base-100 dark:text-white text-title ">
                           User Detailes
                         </summary>
-                        <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                        <ul className="menu dropdown-content dark:text-white text-title bg-transparent dakr:bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                           <li className="flex items-center justify-between text-[16px]  min-w-full gap-x-4 ">
                             <span className="w-full flex items-center justify-end">
                               {UserContext.user?.userName}{" "}
