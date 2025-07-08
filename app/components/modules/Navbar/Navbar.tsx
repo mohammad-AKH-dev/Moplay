@@ -115,7 +115,7 @@ function Navbar() {
     <>
       <nav
         ref={navRef}
-        className="navbar px-6 fixed top-0 py-9 transition-all duration-300 z-[999] bg-white dark:bg-title"
+        className="navbar px-6 fixed top-0 py-9 transition-all duration-300 z-[99] bg-white dark:bg-title"
       >
         <div
           className={`transition-all delay-200 duration-100 ${

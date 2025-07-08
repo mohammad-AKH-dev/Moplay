@@ -26,9 +26,7 @@ export const metadata: Metadata = {
 async function page({ params }: { params: Promise<{ id: string | number }> }) {
   const { id } = await params;
 
-  const res = await fetch(`https://moplay-api.onrender.com/api/users/${id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`https://moplay-api.onrender.com/api/users/${id}`);
   const shows: showsType = await res.json();
 
   return (

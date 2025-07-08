@@ -9,6 +9,7 @@ import movieType from "@/app/types/MovieType";
 import TvShowType from "@/app/types/TvShowType";
 import { themeContext } from "@/app/contexts/ThemeContext";
 import { Flip, toast } from "react-toastify";
+import SeasonDetails from "./SeasonDetails";
 
 type showsType = {
   id?: string;
@@ -21,12 +22,27 @@ type showsType = {
   shows?: TvShowType[];
 } | null;
 
+type showSeasonType = {
+  air_date: string;
+  episode_count: number;
+  id: number;
+  name: string;
+  overview: string;
+  poster_path: string;
+  season_number: number;
+  vote_average: number;
+};
+
 function SingleShow(props: singleTvShowType) {
   const ThemeContext = useContext(themeContext);
   const [user, setUser] = useState<showsType>(null);
+  const [selectedSeason, setSelectedSeason] = useState<showSeasonType | null>(
+    null
+  );
   const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
+    // fetch the informations we need
     const user: showsType = JSON.parse(localStorage.getItem("user")!);
     if (user) {
       fetch(`https://moplay-api.onrender.com/api/users/${String(user.id)}`)
@@ -189,6 +205,15 @@ function SingleShow(props: singleTvShowType) {
   return (
     <div className="single-movie-wrapper grid grid-cols-1 lg:grid-cols-2 container gap-y-3 lg:gap-x-12">
       <div className="single-movie__left-section">
+        <SeasonDetails
+          vote_average={selectedSeason?.vote_average!}
+          air_date={selectedSeason?.air_date!}
+          episode_count={selectedSeason?.episode_count!}
+          season_number={selectedSeason?.season_number!}
+          overview={selectedSeason?.overview!}
+          name={selectedSeason?.name!}
+          poster_path={selectedSeason?.poster_path!}
+        />
         <div className="single-movie__img-wrapper overflow-hidden rounded-2xl relative">
           <img
             alt="img"
@@ -224,9 +249,18 @@ function SingleShow(props: singleTvShowType) {
         >
           <Suspense fallback={<span>Loading...</span>}>
             {seasons.map((season) => (
-              <SwiperSlide key={season.id}>
-                <div className="season-wrapper group transition-all cursor-pointer">
-                  <div className="show-image__wrapper f;ex flex-col items-center justify-center text-center mx-auto min-w-[150px] min-h-[150px] max-w-[150px] max-h-[150px] rounded-2xl overflow-hidden transition-all">
+              <SwiperSlide
+                key={season.id}
+                onClick={() => {
+                  setSelectedSeason(season);
+                  console.log(season);
+                }}
+              >
+                <label
+                  className="season-wrapper group transition-all cursor-pointer"
+                  htmlFor="my_modal_7"
+                >
+                  <div className="show-image__wrapper flex flex-col items-center justify-center text-center mx-auto min-w-[150px] min-h-[150px] max-w-[150px] max-h-[150px] rounded-2xl overflow-hidden transition-all">
                     <img
                       src={`https://image.tmdb.org/t/p/original/${season.poster_path}`}
                       className="rounded-2xl group-hover:scale-110 transition-all group-hover:brightness-75"
@@ -240,7 +274,7 @@ function SingleShow(props: singleTvShowType) {
                       IMDB:{Math.round(season.vote_average)}/10
                     </span>
                   </div>
-                </div>
+                </label>
               </SwiperSlide>
             ))}
           </Suspense>
