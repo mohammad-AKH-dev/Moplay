@@ -240,7 +240,7 @@ function page() {
               }   focus:ring-4 m-auto  focus:outline-none focus:ring-blue-300  cursor-pointer font-medium rounded-lg text-sm w-full sm:w-[50%] flex items-center justify-center px-5 py-2.5 text-center`}
             >
               {disabled ? (
-                <span className="loading loading-spinner loading-lg"></span>
+                <span className="loading loading-spinner loading-md"></span>
               ) : (
                 <span>Submit</span>
               )}

@@ -270,7 +270,7 @@ function UserPanel(props: userPanelPropsType) {
         items-center justify-center px-5 py-2.5 text-center mt-12`}
       >
         {disabled ? (
-          <span className="loading loading-spinner loading-lg"></span>
+          <span className="loading loading-spinner loading-md"></span>
         ) : (
           <span>Update</span>
         )}
