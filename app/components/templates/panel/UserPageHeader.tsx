@@ -13,7 +13,7 @@ function UserPageHeader() {
   const pathName = usePathname()
 
   return (
-    <section className="user-panel__page-header bg-title mt-24 p-9 pb-20">
+    <section className="user-panel__page-header dark:bg-title mt-24 p-9 pb-20">
       <div className="user-panel__page-header_content container">
         <h2 className="user-panel__page-header_title text-[16px] sm:text-[20px] tracking-widest font-bold text-footer">
           Welcome Back{" "}
