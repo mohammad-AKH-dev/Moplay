@@ -3,16 +3,21 @@ import Navbar from "../components/modules/Navbar/Navbar";
 import Footer from "../components/modules/Footer/Footer";
 import CopyRightSection from "../components/modules/CopyRight/CopyRightSection";
 import ThemeContextProvider from "../contexts/ThemeContext";
+import UserContextProvider from "../contexts/UserContext";
+import { ToastContainer } from "react-toastify";
 
 function layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ThemeContextProvider>
-      <div className="single-movie-page">
-        <Navbar />
-        {children}
-        <Footer />
-        <CopyRightSection />
-      </div>
+      <UserContextProvider>
+        <ToastContainer/>
+        <div className="single-movie-page">
+          <Navbar />
+          {children}
+          <Footer />
+          <CopyRightSection />
+        </div>
+      </UserContextProvider>
     </ThemeContextProvider>
   );
 }

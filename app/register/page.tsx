@@ -108,6 +108,7 @@ function page() {
               localStorage.setItem(
                 "user",
                 JSON.stringify({
+                  id:user.ud,
                   firstName: user.firstName,
                   lastName: user.lastName,
                   password: user.password,
