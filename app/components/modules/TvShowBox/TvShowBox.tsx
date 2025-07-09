@@ -81,7 +81,7 @@ function TvShowBox(props: TvShowPropsType) {
     <Link
       key={id}
       href={`/single-show/${id}`}
-      className="tv-show-box group relative max-w-2800px] min-w-[280px] mn:min-w-0 mn:max-w-[164px] m sm:max-w-full  max-h-[334px] sm:max-h-full sm:w-full sm:h-full"
+      className="tv-show-box group relative max-w-[326px] mx-auto min-w-[326px] mn:min-w-0 mn:max-w-[164px] m sm:max-w-full  max-h-[334px] sm:max-h-full sm:w-full sm:h-full"
     >
       <IoPlayCircleSharp
         className="text-[100px] group-hover:text-[70px] text-link absolute 
