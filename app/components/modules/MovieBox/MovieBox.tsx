@@ -81,7 +81,7 @@ function MovieBox(props: movieBoxPropsType) {
     <Link
       key={id}
       href={`/single-movie/${id}`}
-      className="movie-box group relative mn:max-w-[164px] max-w-[326px]  min-w-[326px] mn:min-w-0 sm:max-w-full  max-h-[334px] sm:max-h-full sm:w-full sm:h-full"
+      className="movie-box group relative mn:max-w-[164px] max-w-[326px] mx-auto  min-w-[326px] mn:min-w-0 sm:max-w-full  max-h-[334px] sm:max-h-full sm:w-full sm:h-full"
     >
       <IoPlayCircleSharp
         className="text-[100px] group-hover:text-[70px] text-link absolute 
