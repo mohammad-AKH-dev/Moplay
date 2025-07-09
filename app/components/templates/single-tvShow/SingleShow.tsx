@@ -345,7 +345,7 @@ function SingleShow(props: singleTvShowType) {
           <button
             type="button"
             disabled={disabled}
-            className={`btn tracking-widest ${
+            className={`btn tracking-widest mx-auto lg:mr-0 lg:ml-0 ${
               disabled ? "bg-link w-[136px]" : "bg-red"
             } hover:bg-link transition-all p-4 text-white mt-10`}
             onClick={() => addToFavouriteShows(props)}
@@ -360,7 +360,7 @@ function SingleShow(props: singleTvShowType) {
           <button
             type="button"
             disabled={disabled}
-            className={`btn tracking-widest ${
+            className={`btn tracking-widest mx-auto lg:mr-0 lg:ml-0 ${
               disabled ? "bg-link w-[136px]" : "bg-red"
             } hover:bg-link transition-all p-4 text-white  mt-10`}
             onClick={() => removeFavouriteShow()}

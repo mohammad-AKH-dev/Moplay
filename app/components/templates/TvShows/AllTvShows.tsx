@@ -93,7 +93,7 @@ function AllTvShows(props: AllTvShowsPropsType) {
           className={`tv-shows-boxes__wrapper ${
             !filteredShows.length && genre !== -1
               ? "flex items-center justify-center"
-              : "grid place-items-center gap-y-[6.5rem] text-center sm:text-left grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+              : "grid place-items-center gap-y-[6.5rem] text-center sm:text-left grid-cols-1 mn:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
           } mt-24`}
         >
           {/* default */}

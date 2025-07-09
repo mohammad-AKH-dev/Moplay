@@ -51,7 +51,7 @@ function MovieBox(props: movieBoxPropsType) {
 
   return !isLoaded ? (
     <div
-      className="movie-box group relative mn:max-w-[164px] sm:max-w-full max-h-[334px] sm:max-h-full sm:w-full sm:h-full"
+      className="movie-box group relative mn:max-w-[164px] max-w-[300px] sm:max-w-full max-h-[334px] sm:max-h-full sm:w-full sm:h-full"
       key={Date.now()}
     >
       <div className="movie-img__wrapper  overflow-hidden relative rounded-2xl">
@@ -81,7 +81,7 @@ function MovieBox(props: movieBoxPropsType) {
     <Link
       key={id}
       href={`/single-movie/${id}`}
-      className="movie-box group relative mn:max-w-[164px] sm:max-w-full  max-h-[334px] sm:max-h-full sm:w-full sm:h-full"
+      className="movie-box group relative mn:max-w-[164px] max-w-[280px] min-w-[280px] mn:min-w-0 sm:max-w-full  max-h-[334px] sm:max-h-full sm:w-full sm:h-full"
     >
       <IoPlayCircleSharp
         className="text-[100px] group-hover:text-[70px] text-link absolute 
@@ -95,7 +95,8 @@ function MovieBox(props: movieBoxPropsType) {
         </div>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path.slice(1)}`}
-          className="rounded-2xl group-hover:scale-110 max-h-[300px] w-full max-w-[300px] min-h-[264px] sm:min-h-[300px] cursor-pointer group-hover:blur-sm transition-all duration-200 delay-100"
+          className="rounded-2xl group-hover:scale-110 max-h-[300px] w-full  min-h-[264px] sm:min-h-[300px]
+           cursor-pointer group-hover:blur-sm transition-all duration-200 delay-100"
           key={id}
           alt="movie"
         />

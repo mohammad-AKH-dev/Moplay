@@ -45,7 +45,7 @@ async function page({ params }: { params: Promise<{ id: string | number }> }) {
         ) : (
           <div className="notification flex flex-col items-center justify-center gap-y-3 mt-12">
             <RiMovie2Fill className="text-footer text-[100px]"/>
-            <h2 className="text-[32px] font-bold text-footer capitalize tracking-wider">
+            <h2 className="text-[32px] text-center font-bold text-footer capitalize tracking-wider">
               No movies found to show.
             </h2>
             <p className="text-[16px] max-w-[350px] text-center">

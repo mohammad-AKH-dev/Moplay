@@ -129,13 +129,13 @@ function Landing() {
                   <div className="buttons-wrapper mt-6 flex flex-wrap sm:flex-nowrap gap-y-4 items-center animate__animated animate__fadeInUp gap-x-4">
                     <Button
                       title="play now"
-                      customStyle="bg-link w-full sm:w-fit hover:bg-red transition-all uppercase"
+                      customStyle="bg-link w-full text-white  sm:w-fit hover:bg-red transition-all uppercase"
                     >
                       <FaPlay />
                     </Button>
                     <Button
                       title="more detailes"
-                      customStyle="bg-red w-full sm:w-fit hover:bg-link transition-all uppercase"
+                      customStyle="bg-red w-full  text-white sm:w-fit hover:bg-link transition-all uppercase"
                     />
                   </div>
                 </div>

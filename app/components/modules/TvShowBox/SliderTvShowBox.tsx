@@ -13,7 +13,7 @@ type TvShowPropsType = {
   vote_count: number;
 };
 
-function TvShowBox(props: TvShowPropsType) {
+function SliderTvShowBox(props: TvShowPropsType) {
   const [isLoaded, setIsLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -95,7 +95,7 @@ function TvShowBox(props: TvShowPropsType) {
         </div>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path.slice(1)}`}
-          className="rounded-2xl group-hover:scale-110 max-h-[300px] w-full max-w-[300px] min-h-[264px] sm:min-h-[300px] cursor-pointer group-hover:blur-sm transition-all duration-200 delay-100"
+          className="rounded-2xl group-hover:scale-110 max-h-[300px] w-full sm:max-w-[230px] min-h-[264px] sm:min-h-[300px] cursor-pointer group-hover:blur-sm transition-all duration-200 delay-100"
           key={id}
           alt="tv-show"
         />
@@ -115,4 +115,4 @@ function TvShowBox(props: TvShowPropsType) {
   );
 }
 
-export default TvShowBox;
+export default SliderTvShowBox;

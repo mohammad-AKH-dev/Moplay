@@ -252,7 +252,7 @@ function SingleMovie(props: SingleMovieType) {
           <button
             type="button"
             disabled={disabled}
-            className={`btn tracking-widest ${
+            className={`btn tracking-widest mx-auto lg:mr-0 lg:ml-0 ${
               disabled ? "bg-link w-[136px]" : "bg-red"
             } hover:bg-link transition-all p-4 text-white mt-10`}
             onClick={() => addToFavouriteMovies(props)}
@@ -267,7 +267,7 @@ function SingleMovie(props: SingleMovieType) {
           <button
             type="button"
             disabled={disabled}
-            className={`btn tracking-widest flex items-center justify-center ${
+            className={`btn tracking-widest flex mx-auto lg:mr-0 lg:ml-0 items-center justify-center ${
               disabled ? "bg-link w-[136px]" : "bg-red"
             } hover:bg-link transition-all p-4 text-white mt-10`}
             onClick={() => removeFavouriteMovie()}
