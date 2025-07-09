@@ -37,12 +37,14 @@ function SeasonDetails(props: showSeasonType) {
             <h3 className="season-title text-[24px] lg:text-[30px]">
               Title: {name}
             </h3>
-            <p className="season-overview mt-2 lg:mt-4 text-[15px] lg:text-[18px]">
-              Overview:{" "}
-              {overview?.length
-                ? overview
-                : "There is no preview for this season."}
-            </p>
+            <div className="text-wrapper mt-2 lg:mt-4 line-clamp-[8] max-h-[250px] text-ellipsis">
+              <p className="season-overview  text-ellipsis  text-[15px] lg:text-[18px]">
+                Overview:{" "}
+                {overview?.length
+                  ? overview
+                  : "There is no preview for this season."}
+              </p>
+            </div>
             <div className="flex items-center justify-center sm:justify-start text-[14px] lg:text-[16px] mt-3 lg:mt-6 gap-x-12">
               <span className="season-number">Season: {season_number}</span>
               <span className="episode_count">Episodes: {episode_count}</span>

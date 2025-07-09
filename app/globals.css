@@ -13,3 +13,11 @@ body {
   box-sizing: border-box;
   font-size: 17px;
 }
+
+.truncate {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-line-clamp: 4 !important;
+    line-clamp: 4 !important;
+    overflow: hidden;
+}
