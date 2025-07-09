@@ -24,7 +24,7 @@ function SeasonDetails(props: showSeasonType) {
   return (
     <div>
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-      <div className="modal -top-[160px] sm:-top-[60px] lg:top-0" role="dialog">
+      <div className="modal -top-[230px] sm:-top-[150px] lg:top-0" role="dialog">
         <div
           className="modal-box bg-white dark:bg-base-100  text-center sm:text-left
          -translate-y-[20.5rem] lg:-translate-y-[5.5rem] grid grid-cols-1 gap-y-4 sm:gap-y-0 sm:grid-cols-2 lg:min-w-[800px]"
